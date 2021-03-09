@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./01_geometry.css" />
+    <script src="./01_geometry.js" defer></script>
+    <title>Coordinates</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container"></div>
+    </div>
+    <div class="text">
+      <!-- mouse coordinates -->
+      <ul class="textlist">
+        <h2 class="heading">Mouse Coordinates</h2>
+        <li>
+          <span class="jstext mouse_screen"> Screen : </span>
+          <span class="description">
+            Relative to the screen
+            <ul class="codelist">
+              <li>mouseEvent.screenX</li>
+              <li>mouseEvent.screenY</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext mouse_client"> Client : </span>
+          <span class="description">
+            Relative to the viewport
+            <ul class="codelist">
+              <li>mouseEvent.clientX</li>
+              <li>mouseEvent.clientY</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext mouse_page"> Page : </span>
+          <span class="description">
+            Relative to the page
+            <ul class="codelist">
+              <li>mouseEvent.pageX</li>
+              <li>mouseEvent.pageY</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext mouse_offset"> Offset : </span>
+          <span class="description">
+            Relative to the element
+            <ul class="codelist">
+              <li>mouseEvent.offsetX</li>
+              <li>mouseEvent.offsetY</li>
+            </ul>
+          </span>
+        </li>
+      </ul>
+
+      <!-- element size -->
+      <ul class="textlist">
+        <h2 class="heading">Element Size</h2>
+        <li>
+          <span class="jstext element_offset"> Offset : </span>
+          <span class="description">
+            The size of the element - This includes border
+            <ul class="codelist">
+              <li>element.offsetWidth</li>
+              <li>element.offsetHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext element_client"> Client : </span>
+          <span class="description">
+            The size of the visible content - This excludes scroll bar
+            <ul class="codelist">
+              <li>element.clientWidth</li>
+              <li>element.clientHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext element_scroll"> Scroll : </span>
+          <span class="description">
+            The size of the whole content
+            <ul class="codelist">
+              <li>element.scrollWidth</li>
+              <li>element.scrollHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext element_rendered"> Rendered : </span>
+          <span class="description">
+            The exact rendered size of the element
+            <ul class="codelist">
+              <li>element.getBoundingClientRect().width</li>
+              <li>element.getBoundingClientRect().height</li>
+            </ul>
+          </span>
+        </li>
+      </ul>
+
+      <!-- window size -->
+      <ul class="textlist">
+        <h2 class="heading">Window Size</h2>
+        <li>
+          <span class="jstext window_screen"> Screen : </span>
+          <span class="description">
+            The size of the screen
+            <ul class="codelist">
+              <li>window.screen.width</li>
+              <li>window.screen.height</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext window_window"> Window : </span>
+          <span class="description">
+            The size of the window
+            <ul class="codelist">
+              <li>window.outerWidth</li>
+              <li>window.outerHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext window_viewport"> Viewport : </span>
+          <span class="description">
+            The size of the viewport - This includes the scroll bar
+            <ul class="codelist">
+              <li>window.innerWidth</li>
+              <li>window.innerHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext window_document"> Document : </span>
+          <span class="description">
+            The size of the document - This excludes the scroll bar
+            <ul class="codelist">
+              <li>document.documentElement.clientWidth</li>
+              <li>document.documentElement.clientHeight</li>
+            </ul>
+          </span>
+        </li>
+        <li>
+          <span class="jstext window_content"> Page : </span>
+          <span class="description">
+            The size of the content
+            <ul class="codelist">
+              <li>document.documentElement.scrollWidth</li>
+              <li>document.documentElement.scrollHeight</li>
+            </ul>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="line horizontal"></div>
+    <div class="line vertical"></div>
+    <img src="./img/target.png" alt="" class="target" />
+  </body>
+</html>
