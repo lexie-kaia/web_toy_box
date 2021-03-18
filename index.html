@@ -5,6 +5,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Toy Box</title>
+    <link rel="stylesheet" href="reset_custom.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/381cdc4554.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" defer></script>
   </head>
-  <body></body>
+  <body>
+
+    <div class="body">
+
+      <div class="body__left">
+
+        <!-- header -->
+        <header>
+          <h1 class="fs__h1">
+            WEB TOY BOX
+          </h1>
+        </header>
+
+        <!-- filter section -->
+        <nav class="filter js-filter">
+          <h2 class="fs__h2 fs__h2--section-heading">
+            Filter
+          </h2>
+          <ul class="filter__list">
+            <li>
+              <button type="button" class="tag__m tag__m--selected " data-filter="all">
+                ALL
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tag__m">
+                HTML
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tag__m">
+                CSS
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tag__m">
+                JavaScript
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="body__right">
+
+        <!-- project section -->
+        <div class="project">
+          <h2 class="fs__h2 fs__h2--section-heading">
+            Projects
+          </h2>
+
+          <div class="project__list">
+
+            <div class="project__card js-project-card">
+              <div class="project__summary">
+                <a href="" class="project__img-container">
+                  <img src="" alt="" class="project__image" />
+                </a>
+                <div class="project__text-container">
+                  <span class="tag__s">
+                    HTML
+                  </span>
+                  <span class="tag__s">
+                    CSS
+                  </span>
+                  <span class="tag__s">
+                    JS
+                  </span>
+                  <h3 class="project__title fs__h2">
+                    <a href="">
+                      Semantic Structure
+                    </a>
+                  </h3>
+                  <p class="project__description fs__p">
+                    <a href="">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga optio natus maiores.
+                    </a>
+                  </p>
+                </div>
+                <div class="project__btn-container">
+                  <button class="btn__view-more js-btn-view-more">
+                    <i class="fas fa-chevron-down js-icon"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project__verbose display--none js-content-verbose">
+                <h4 class="project__heading fs__h3">
+                  Key Features
+                </h4>
+                <p class="project__description fs__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis illo incidunt dolore molestias commodi. Aliquid.
+                </p>
+                <h4 class="project__heading fs__f3">
+                  References
+                </h4>
+                <p class="project__description fs__p">
+                  <ul>
+                    <li class="fs__list">Lorem ipsum dolor sit amet consectetur.</li>
+                    <li class="fs__list">Lorem ipsum dolor sit.</li>
+                    <li class="fs__list">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, amet.</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+            <div class="project__card js-project-card">
+              <div class="project__summary">
+                <a href="" class="project__img-container">
+                  <img src="" alt="" class="project__image" />
+                </a>
+                <div class="project__text-container">
+                  <span class="tag__s">
+                    HTML
+                  </span>
+                  <span class="tag__s">
+                    CSS
+                  </span>
+                  <span class="tag__s">
+                    JS
+                  </span>
+                  <h3 class="project__title fs__h2">
+                    <a href="">
+                      Semantic Structure
+                    </a>
+                  </h3>
+                  <p class="project__description fs__p">
+                    <a href="">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga optio natus maiores.
+                    </a>
+                  </p>
+                </div>
+                <div class="project__btn-container">
+                  <button class="btn__more js-btn-more">
+                    <i class="fas fa-chevron-down js-icon"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project__verbose display--none js-content-verbose">
+                <h4 class="project__heading fs__h3">
+                  Key Features
+                </h4>
+                <p class="project__description fs__p">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, aut.
+                </p>
+                <h4 class="project__heading fs__f3">
+                  References
+                </h4>
+                <p class="project__description fs__p">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi.
+                </p>
+              </div>
+            </div>
+
+           
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
 </html>

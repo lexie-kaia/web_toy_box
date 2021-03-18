@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap');
+
+body {
+  color: #292929;
+}
+
+body::after {
+  content: 'lexie-kaia ';
+  display: block;
+  margin: 64px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* font style */
+.fs__h1 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 160px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.fs__h1--m {
+}
+
+.fs__h2 {
+  display: block;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.fs__h2--section-heading {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+
+.fs__h3 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.fs__p {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.fs__list {
+  list-style-type: disc;
+  margin-left: 30px;
+  line-height: 22px;
+}
+
+/* tag style */
+.tag__m {
+  margin-right: 10px;
+  padding: 0 10px;
+  height: 32px;
+  border: 1px solid #474747;
+  /* border-radius: 3px;
+  background: #e6e6e6;
+  color: #757575; */
+  color: #474747;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.tag__m--selected {
+  background: #191919;
+  color: #ffffff;
+}
+
+.tag__s {
+  margin-right: 6px;
+  padding: 0 5px;
+  height: 24px;
+  border: 1px solid #474747;
+  /* border-radius: 3px; */
+  /* background: #e6e6e6; */
+  /* color: #757575; */
+  color: #474747;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* body */
+.body {
+  display: grid;
+  grid-template-columns: 408px 1fr;
+  gap: 32px;
+  margin: 115px auto 0;
+  max-width: 1224px;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+/* filter section */
+.filter {
+  margin-top: 20px;
+}
+
+.filter__list {
+  display: flex;
+}
+
+/* projects section */
+.project__summary {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  padding: 16px 0;
+  /* border: 1px solid red; */
+}
+
+.project__img-container {
+  flex-shrink: 0;
+  margin-right: 16px;
+  width: 200px;
+  height: 138px;
+  background-color: blue;
+}
+
+.project__text-container {
+  flex-grow: 1;
+  margin-right: 16px;
+  /* border: 1px solid red; */
+}
+
+.project__btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn__view-more {
+  display: block;
+  padding: 6px;
+  color: #474747;
+  text-align: right;
+  transition: transform 0.25s;
+}
+
+.btn__view-more--rotate {
+  transform: rotate(180deg);
+}
+
+.project__title {
+  margin-top: 6px;
+}
+
+.project__description {
+  margin-top: 6px;
+}
+
+.project__verbose {
+  padding-left: 216px;
+  padding-bottom: 32px;
+}
+
+.display--none {
+  display: none;
+}
+
+.project__heading {
+  margin-top: 12px;
+}
+
+.project__heading:first-child {
+  margin-top: 0px;
+}
