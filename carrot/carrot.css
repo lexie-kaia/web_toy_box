@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #e6e6e6;
+  font-family: 'Fredoka One', cursive;
+}
+
+.game {
+  position: relative;
+  overflow: hidden;
+  width: 960px;
+  height: 540px;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+/* game background */
+.game__background img {
+  width: 100%;
+  /* height: 100%; */
+}
+
+/* game ui */
+.game__scoreboard {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  display: flex;
+
+  transform: translateX(-50%);
+}
+
+.scoreboard__stat {
+  display: flex;
+  overflow: hidden;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 48px;
+  line-height: 64px;
+}
+
+.scoreboard__stat:first-child {
+  margin-right: 24px;
+}
+
+.stat__icon {
+  width: 72px;
+  padding-left: 4px;
+  background: yellowgreen;
+  color: whitesmoke;
+  font-size: 40px;
+  text-align: center;
+}
+
+.stat__value {
+  /* padding: 0 16px; */
+  background: whitesmoke;
+  text-align: center;
+}
+
+.score {
+  width: 80px;
+}
+
+.timer {
+  width: 160px;
+}
+
+.ui__btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: tomato;
+  color: whitesmoke;
+  font-size: 36px;
+  line-height: 64px;
+  text-align: center;
+}
+
+.ui__btn:hover {
+  transform: scale(1.1);
+}
+
+.btn__stop {
+  position: absolute;
+  top: 0;
+  right: -260px;
+}
+
+/* game field */
+.game__field {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 960px;
+  height: 270px;
+}
+
+.field__target-area {
+  position: relative;
+  margin: 30px;
+  width: 900px;
+  height: 210px;
+}
+
+.field__target {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.field__target:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* game popup */
+.game__popup {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 48px;
+  border-radius: 16px;
+  background: rgba(96, 96, 96, 0.8);
+  color: white;
+  font-size: 56px;
+  transform: translate(-50%, 50%);
+}
+
+.popup__message {
+  margin-bottom: 16px;
+}
+
+/* css attributes */
+.hidden {
+  display: none;
+}
