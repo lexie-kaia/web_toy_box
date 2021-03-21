@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrot</title>
+    <title>Pick Carrots</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="carrot.css" />
@@ -32,20 +32,45 @@
           <div class="stat__value timer">00:00</div>
         </div>
 
-        <div class="ui__btn btn__stop">
+        <button class="ui__btn btn__stop">
           <i class="fas fa-stop"></i>
-        </div>
+        </button>
       </div>
 
       <div class="game__field">
         <div class="field__target-area"></div>
       </div>
 
-      <div class="game__popup">
-        <div class="popup__message">Pick Carrots</div>
-        <div class="ui__btn btn__play">
+      <div class="game__title">
+        <h1 class="title__title">Pick Carrots</h1>
+        <button class="ui__btn btn__start">
           <i class="fas fa-play"></i>
+        </button>
+        <div class="title__builder">
+          <div class="builder__title">Game Builder</div>
+          <div class="builder__desc">
+            Please enter the amount of carrots and bugs and the duration of the game. (1-100, only integers)
+          </div>
+          <div class="builder__form">
+            <label for="carrot">Carrots</label>
+            <input type="number" id="carrot" class="builder__input" min="1" max="100" value="10" />
+          </div>
+          <div class="builder__form">
+            <label for="bug">Bugs</label>
+            <input type="number" id="bug" class="builder__input" min="1" max="100" value="10" />
+          </div>
+          <div class="builder__form">
+            <label for="time">Time Limit</label>
+            <input type="number" id="time" class="builder__input" min="1" max="100" value="10" />
+          </div>
         </div>
+      </div>
+
+      <div class="game__popup hidden">
+        <div class="popup__message"></div>
+        <button class="ui__btn btn__play">
+          <i class="fas fa-play"></i>
+        </button>
       </div>
     </div>
   </body>

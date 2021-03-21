@@ -13,6 +13,26 @@ body {
   font-family: 'Fredoka One', cursive;
 }
 
+button {
+  background: transparent;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+button,
+input {
+  border: none;
+  font-family: inherit;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active {
+  outline: none;
+  box-shadow: none;
+}
+
 .game {
   position: relative;
   overflow: hidden;
@@ -95,6 +115,11 @@ body {
   right: -260px;
 }
 
+.btn__start {
+  display: block;
+  margin: 4px auto 20px;
+}
+
 /* game field */
 .game__field {
   position: absolute;
@@ -122,8 +147,65 @@ body {
   transform: translate(-50%, -50%) scale(1.2);
 }
 
+/* game title */
+.game__title {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  padding: 36px 48px;
+  border-radius: 16px;
+  background: rgba(96, 96, 96, 0.8);
+  color: white;
+  font-size: 20px;
+  transform: translate(-50%, 50%);
+}
+
+.title__title {
+  font-size: 56px;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.title__builder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.builder__title {
+  margin-bottom: 4px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.builder__desc {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.builder__form {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+.builder__input {
+  width: 96px;
+  color: #474747;
+  font-size: 24px;
+  border-radius: 12px;
+}
+
 /* game popup */
 .game__popup {
+  display: none;
   position: absolute;
   bottom: 50%;
   left: 50%;

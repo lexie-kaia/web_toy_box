@@ -16,7 +16,7 @@ const BUG = {
   selector: '.bug',
 };
 
-const TIME_LIMIT_SEC = 10;
+let TIME_LIMIT_SEC = 10;
 
 const POPUP_MESSAGE = {
   stopped: 'Replay?',
@@ -24,9 +24,25 @@ const POPUP_MESSAGE = {
   lose: 'You lose',
 };
 
-const game = new GameBuilder()
-  .withMainItem(CARROT)
-  .withObstacle(BUG)
-  .withTimeLimitSec(TIME_LIMIT_SEC)
-  .withPopupMessage(POPUP_MESSAGE)
-  .build();
+const btnStart = document.querySelector('.btn__start');
+const carrotCount = document.querySelector('#carrot');
+const bugCount = document.querySelector('#bug');
+const timeLimitSec = document.querySelector('#time');
+const gameTitle = document.querySelector('.game__title');
+
+btnStart.addEventListener('click', () => {
+  gameTitle.classList.add('hidden');
+
+  CARROT.count = carrotCount.value;
+  BUG.count = bugCount.value;
+  TIME_LIMIT_SEC = timeLimitSec.value;
+
+  const game = new GameBuilder()
+    .withMainItem(CARROT)
+    .withObstacle(BUG)
+    .withTimeLimitSec(TIME_LIMIT_SEC)
+    .withPopupMessage(POPUP_MESSAGE)
+    .build();
+
+  game.start();
+});
