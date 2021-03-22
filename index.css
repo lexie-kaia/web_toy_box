@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap');
+@import './reset.css';
 
 body {
   color: #292929;
@@ -19,9 +19,6 @@ body::after {
   font-weight: 700;
   text-align: center;
   letter-spacing: -0.02em;
-}
-
-.fs__h1--m {
 }
 
 .fs__h2 {
@@ -59,17 +56,9 @@ body::after {
   padding: 0 10px;
   height: 32px;
   border: 1px solid #474747;
-  /* border-radius: 3px;
-  background: #e6e6e6;
-  color: #757575; */
   color: #474747;
   font-size: 13px;
   line-height: 20px;
-}
-
-.tag__m--selected {
-  background: #191919;
-  color: #ffffff;
 }
 
 .tag__s {
@@ -77,9 +66,6 @@ body::after {
   padding: 0 5px;
   height: 24px;
   border: 1px solid #474747;
-  /* border-radius: 3px; */
-  /* background: #e6e6e6; */
-  /* color: #757575; */
   color: #474747;
   font-size: 13px;
   line-height: 20px;
@@ -93,7 +79,6 @@ body::after {
   margin: 115px auto 0;
   max-width: 1224px;
   width: 100%;
-  /* border: 1px solid red; */
 }
 
 /* filter section */
@@ -106,12 +91,16 @@ body::after {
 }
 
 /* projects section */
+.project__list {
+  opacity: 1;
+  transition: 0.25s;
+}
+
 .project__summary {
   display: flex;
   justify-content: space-between;
   align-self: center;
   padding: 16px 0;
-  /* border: 1px solid red; */
 }
 
 .project__img-container {
@@ -125,7 +114,6 @@ body::after {
 .project__text-container {
   flex-grow: 1;
   margin-right: 16px;
-  /* border: 1px solid red; */
 }
 
 .project__btn-container {
@@ -135,14 +123,10 @@ body::after {
 
 .btn__view-more {
   display: block;
-  padding: 6px;
+  padding: 8px;
   color: #474747;
   text-align: right;
   transition: transform 0.25s;
-}
-
-.btn__view-more--rotate {
-  transform: rotate(180deg);
 }
 
 .project__title {
@@ -154,12 +138,9 @@ body::after {
 }
 
 .project__verbose {
+  display: none;
   padding-left: 216px;
   padding-bottom: 32px;
-}
-
-.display--none {
-  display: none;
 }
 
 .project__heading {
@@ -168,4 +149,26 @@ body::after {
 
 .project__heading:first-child {
   margin-top: 0px;
+}
+
+/* javascript */
+.js-btn-view-more-rotate {
+  transform: rotate(180deg);
+}
+
+.js-verbose-show {
+  display: block;
+}
+
+.js-anim-out {
+  opacity: 0;
+}
+
+.js-display-none {
+  display: none;
+}
+
+.js-filter-selected {
+  background: #191919;
+  color: #ffffff;
 }
