@@ -1,3 +1,4 @@
+@import url('../../reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
@@ -28,12 +29,35 @@ h2 {
   text-align: center;
 }
 
+@media screen and (max-width: 767px) {
+  h1 {
+    margin-top: 10rem;
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .container {
-  margin: 6rem auto 8rem;
+  padding: 8rem 0 10rem;
+}
+
+.container:nth-child(2) {
+  padding: 6rem 0 2rem;
+}
+
+.container:nth-child(4) {
+  background-color: #f5f5f5;
+}
+
+.content {
+  margin: 0 auto;
   max-width: 1320px;
   width: 100%;
   padding: 0 1rem;
-  /* border: 1px solid red; */
+  /* border: solid 1px red; */
 }
 
 /* card cover + text */
@@ -131,8 +155,7 @@ h2 {
 }
 
 .static-card:hover {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.25),
-    0 25px 25px -15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.25), 0 25px 25px -15px rgba(0, 0, 0, 0.25);
   transform: scale(1.1);
 }
 
@@ -146,10 +169,16 @@ h2 {
   background: center / cover no-repeat url(./img/orange1.jpg);
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 769px) and (max-width: 1280px) {
   .static {
     margin: 0 auto;
     width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .static {
+    padding-top: 0;
   }
 }
 
@@ -200,10 +229,6 @@ h2 {
 }
 
 /* grid card list */
-.back-grey {
-  padding: 3rem 0;
-  background-color: #f5f5f5;
-}
 
 .grid {
   display: grid;
@@ -224,8 +249,7 @@ h2 {
 }
 
 .grid-card:hover {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1),
-    0 25px 25px -15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 25px 25px -15px rgba(0, 0, 0, 0.05);
 }
 
 .grid-img {

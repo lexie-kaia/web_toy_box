@@ -5,12 +5,24 @@
 
 body {
   display: flex;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
   background: #e6e6e6;
   font-family: 'Fredoka One', cursive;
+}
+
+body::after {
+  content: 'lexie-kaia ';
+  position: absolute;
+  bottom: 10vh;
+  display: block;
+  color: #757575;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  text-align: center;
 }
 
 button {
@@ -30,7 +42,6 @@ button:active,
 input:focus,
 input:active {
   outline: none;
-  box-shadow: none;
 }
 
 .game {
@@ -158,7 +169,7 @@ input:active {
   width: 600px;
   padding: 36px 48px;
   border-radius: 16px;
-  background: rgba(96, 96, 96, 0.8);
+  background: rgba(96, 96, 96, 0.9);
   color: white;
   font-size: 20px;
   transform: translate(-50%, 50%);
@@ -197,9 +208,11 @@ input:active {
 }
 
 .builder__input {
+  padding-left: 16px;
   width: 96px;
-  color: #292929;
+  color: #191919;
   font-size: 24px;
+  text-align: center;
   border-radius: 12px;
 }
 
@@ -214,7 +227,7 @@ input:active {
   align-items: center;
   padding: 36px 48px;
   border-radius: 16px;
-  background: rgba(96, 96, 96, 0.8);
+  background: rgba(96, 96, 96, 0.9);
   color: white;
   font-size: 56px;
   transform: translate(-50%, 50%);

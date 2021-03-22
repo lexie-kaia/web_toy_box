@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pick Carrots</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="carrot.css" />
     <script type="module" src="./src/carrot.js" defer></script>
     <script src="https://kit.fontawesome.com/381cdc4554.js" crossorigin="anonymous"></script>
@@ -46,10 +46,11 @@
         <button class="ui__btn btn__start">
           <i class="fas fa-play"></i>
         </button>
-        <div class="title__builder">
+        <form class="title__builder">
           <div class="builder__title">Game Builder</div>
           <div class="builder__desc">
-            Please enter the amount of carrots and bugs and the duration of the game. (1-100, only integers)
+            Please enter the amount of carrots and bugs and <br />
+            the duration of the game. (1-100, only integers)
           </div>
           <div class="builder__form">
             <label for="carrot">Carrots</label>
@@ -63,7 +64,7 @@
             <label for="time">Time Limit</label>
             <input type="number" id="time" class="builder__input" min="1" max="100" value="10" />
           </div>
-        </div>
+        </form>
       </div>
 
       <div class="game__popup hidden">

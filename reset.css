@@ -139,6 +139,7 @@ textarea:active {
 button {
   background: transparent;
   cursor: pointer;
+  box-shadow: none;
 }
 
 button,

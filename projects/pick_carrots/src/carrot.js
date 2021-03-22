@@ -31,6 +31,16 @@ const timeLimitSec = document.querySelector('#time');
 const gameTitle = document.querySelector('.game__title');
 
 btnStart.addEventListener('click', () => {
+  if (
+    carrotCount.value < 1 ||
+    carrotCount.value > 100 ||
+    bugCount.value < 1 ||
+    bugCount.value > 100 ||
+    timeLimitSec.value < 1 ||
+    timeLimitSec.value > 100
+  )
+    return;
+
   gameTitle.classList.add('hidden');
 
   CARROT.count = carrotCount.value;
