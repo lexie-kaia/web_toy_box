@@ -5,34 +5,67 @@ const filterList = document.querySelector('.js-filter-list');
 
 const generateProjectCards = () => {
   projects.forEach((project) => {
-    const { title, summary, url, imgUrl, tags, keyFeatures, references } = project;
+    const { title, summary, url, thumbnailUrl, tags, keyFeatures, references, imgsUrl } = project;
     const tagsData = tags.join(' ');
     let tagsHTML = '';
     let keyFeaturesHTML = '';
     let referencesHTML = '';
+    let imgsHTML = '';
     tags.forEach((tag) => {
       tagsHTML += `<span class="tag__s">${tag.toUpperCase()}</span>`;
     });
-    keyFeatures.forEach((feature) => {
-      keyFeaturesHTML += `<li class="fs__list">${feature}</li>`;
-    });
-    references.forEach((ref) => {
-      referencesHTML += `<li class="fs__list"><a href="${ref[1]}">${ref[0]}</a></li>`;
+
+    if (keyFeatures.length !== 0) {
+      let keyFeaturesInnerHTML = '';
+      console.log(keyFeaturesInnerHTML);
+      keyFeatures.forEach((feature) => {
+        keyFeaturesInnerHTML = keyFeaturesInnerHTML + `<li class="fs__list">${feature}</li>`;
+      });
+      keyFeaturesHTML = `
+        <h4 class="project__heading fs__h3">
+          Key Features
+        </h4>
+        <p class="project__description fs__p">
+          <ul>
+            ${keyFeaturesInnerHTML}
+          </ul>
+        </p>`;
+    }
+
+    if (references.length !== 0) {
+      let referencesInnerHTML = '';
+      references.forEach((ref) => {
+        referencesInnerHTML =
+          referencesInnerHTML + `<li class="fs__list"><a href="${ref[1]}" target="_blank">${ref[0]}</a></li>`;
+      });
+      referencesHTML = `
+        <h4 class="project__heading fs__h3">
+          References
+        </h4>
+        <p class="project__description fs__p">
+          <ul>
+            ${referencesInnerHTML}
+          </ul>
+        </p>`;
+    }
+
+    imgsUrl.forEach((img) => {
+      imgsHTML += `<img src="${img}" alt="" class="project__src"></img>`;
     });
     const projectCardHTML = `
       <div class="project__summary">
-        <a href="${url}" class="project__img-container">
-          <img src="${imgUrl}" alt="" class="project__image" />
+        <a href="${url}" target="_blank" class="project__thumbnail-container">
+          <img src="${thumbnailUrl}" alt="" class="project__thumbnail" />
         </a>
         <div class="project__text-container">
           ${tagsHTML}
           <h3 class="project__title fs__h2">
-            <a href="${url}">
+            <a href="${url}" target="_blank">
               ${title}
             </a>
           </h3>
           <p class="project__description fs__p">
-            <a href="${url}">
+            <a href="${url}" target="_blank">
               ${summary}
             </a>
           </p>
@@ -44,22 +77,11 @@ const generateProjectCards = () => {
         </div>
       </div>
       <div class="project__verbose js-verbose">
-        <h4 class="project__heading fs__h3">
-          Key Features
-        </h4>
-        <p class="project__description fs__p">
-          <ul>
-            ${keyFeaturesHTML}
-          </ul>
-        </p>
-        <h4 class="project__heading fs__f3">
-          References
-        </h4>
-        <p class="project__description fs__p">
-          <ul>
-            ${referencesHTML}
-          </ul>
-        </p>
+        <div class="project__img">
+          ${imgsHTML}
+        </div>
+        ${keyFeaturesHTML}
+        ${referencesHTML}
       </div>
     `;
 
@@ -114,6 +136,8 @@ const showFilteredProjectCards = (event) => {
     projectCards.forEach((projectCard) => {
       const verboseShow = projectCard.querySelector('.js-verbose-show');
       verboseShow && verboseShow.classList.remove('js-verbose-show');
+      const rotatedButton = projectCard.querySelector('.js-btn-view-more-rotate');
+      rotatedButton && rotatedButton.classList.remove('js-btn-view-more-rotate');
 
       if (filter === 'all') {
         projectCard.classList.remove('js-display-none');

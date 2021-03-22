@@ -15,7 +15,7 @@ body::after {
 /* font style */
 .fs__h1 {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 160px;
+  font-size: 144px;
   font-weight: 700;
   text-align: center;
   letter-spacing: -0.02em;
@@ -61,6 +61,11 @@ body::after {
   line-height: 20px;
 }
 
+.tag__m:hover {
+  background: #191919;
+  color: #ffffff;
+}
+
 .tag__s {
   margin-right: 6px;
   padding: 0 5px;
@@ -98,17 +103,18 @@ body::after {
 
 .project__summary {
   display: flex;
-  justify-content: space-between;
   align-self: center;
   padding: 16px 0;
 }
 
-.project__img-container {
+.project__thumbnail-container {
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   margin-right: 16px;
   width: 200px;
   height: 138px;
-  background-color: blue;
 }
 
 .project__text-container {
@@ -117,20 +123,35 @@ body::after {
 }
 
 .project__btn-container {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
 .btn__view-more {
   display: block;
-  padding: 8px;
-  color: #474747;
-  text-align: right;
-  transition: transform 0.25s;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #bdbdbd;
+  text-align: center;
+  transition: transform 0.25s, color 0.1s;
+}
+
+.btn__view-more:hover {
+  color: #292929;
+}
+
+.project__thumbnail {
+  height: 100%;
 }
 
 .project__title {
   margin-top: 6px;
+}
+
+.project__title:hover {
+  text-decoration: underline;
 }
 
 .project__description {
@@ -143,12 +164,18 @@ body::after {
   padding-bottom: 32px;
 }
 
-.project__heading {
-  margin-top: 12px;
+.project__src {
+  width: 100%;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
-.project__heading:first-child {
-  margin-top: 0px;
+.project__src:last-child {
+  margin-bottom: 0;
+}
+
+.project__heading {
+  margin-top: 16px;
 }
 
 /* javascript */
