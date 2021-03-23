@@ -22,11 +22,11 @@ const generateProjectCards = () => {
         keyFeaturesInnerHTML = keyFeaturesInnerHTML + `<li class="fs__list">${feature}</li>`;
       });
       keyFeaturesHTML = `
-        <h4 class="project__heading fs__h3">
+        <h4 class="project__heading fs__h4">
           Key Features
         </h4>
-        <p class="project__description fs__p">
-          <ul>
+        <p class="project__description">
+          <ul class="fs__p">
             ${keyFeaturesInnerHTML}
           </ul>
         </p>`;
@@ -39,11 +39,11 @@ const generateProjectCards = () => {
           referencesInnerHTML + `<li class="fs__list"><a href="${ref[1]}" target="_blank">${ref[0]}</a></li>`;
       });
       referencesHTML = `
-        <h4 class="project__heading fs__h3">
+        <h4 class="project__heading fs__h4">
           References
         </h4>
-        <p class="project__description fs__p">
-          <ul>
+        <p class="project__description">
+          <ul class="fs__p">
             ${referencesInnerHTML}
           </ul>
         </p>`;
@@ -59,7 +59,7 @@ const generateProjectCards = () => {
         </a>
         <div class="project__text-container">
           ${tagsHTML}
-          <h3 class="project__title fs__h2">
+          <h3 class="project__title fs__h3">
             <a href="${url}" target="_blank">
               ${title}
             </a>
@@ -96,7 +96,7 @@ const generateProjectCards = () => {
 const generateTags = () => {
   tags.forEach((tag) => {
     const button = document.createElement('button');
-    button.classList.add('tag__m');
+    button.classList.add('tag__m', 'filter__item');
     button.setAttribute('data-filter', tag);
     button.textContent = tag.toUpperCase();
     filterList.append(button);

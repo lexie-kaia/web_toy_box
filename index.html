@@ -16,14 +16,18 @@
       <div class="body__left">
         <!-- header -->
         <header>
-          <h1 class="fs__h1">WEB<br />TOY<br />BOX</h1>
+          <h1 class="header fs__h1">
+            <span class="header__text">WEB</span>
+            <span class="header__text">TOY</span>
+            <span class="header__text">BOX</span>
+          </h1>
         </header>
 
         <!-- filter section -->
         <nav class="filter js-filter">
           <h2 class="fs__h2 fs__h2--section-heading">Filter</h2>
           <div class="filter__list js-filter-list">
-            <button type="button" class="tag__m js-filter-selected" data-filter="all">ALL</button>
+            <button type="button" class="filter__item tag__m js-filter-selected" data-filter="all">ALL</button>
             <!-- generate tags -->
           </div>
         </nav>
@@ -35,6 +39,31 @@
           <h2 class="fs__h2 fs__h2--section-heading">Projects</h2>
           <div class="project__list js-project-list">
             <!-- generate project cards -->
+            <!-- <div class="project__card js-project-card" data-tags="">
+              <div class="project__summary">
+                <a href="${url}" target="_blank" class="project__thumbnail-container">
+                  <img src="${thumbnailUrl}" alt="" class="project__thumbnail" />
+                </a>
+                <div class="project__text-container">
+                  ${tagsHTML}
+                  <h3 class="project__title fs__h2">
+                    <a href="${url}" target="_blank"> ${title} </a>
+                  </h3>
+                  <p class="project__description fs__p">
+                    <a href="${url}" target="_blank"> ${summary} </a>
+                  </p>
+                </div>
+                <div class="project__btn-container">
+                  <button class="btn__view-more js-btn-view-more">
+                    <i class="fas fa-chevron-down js-icon"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project__verbose js-verbose">
+                <div class="project__img">${imgsHTML}</div>
+                ${keyFeaturesHTML} ${referencesHTML}
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
