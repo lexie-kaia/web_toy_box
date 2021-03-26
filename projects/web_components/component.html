@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wep Components</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./component.css" />
+    <script src="https://kit.fontawesome.com/381cdc4554.js" crossorigin="anonymous"></script>
+    <script type="module" src="./component.js" defer></script>
+  </head>
+  <body>
+    <h1>Web Compoenents</h1>
+
+    <div class="container">
+      <h2>Header & Dropdown menu</h2>
+      <div class="content content-full">
+        <header class="header">
+          <div class="header-logo">
+            <h4>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </h4>
+          </div>
+          <nav class="header-nav">
+            <input type="text" class="header-nav-search" placeholder="Search" />
+            <ul class="header-nav-list">
+              <li class="header-nav-item">
+                <a href=""> Pull requests </a>
+              </li>
+              <li class="header-nav-item">
+                <a href=""> Issues </a>
+              </li>
+              <li class="header-nav-item">
+                <a href=""> Marketplace </a>
+              </li>
+              <li class="header-nav-item">
+                <a href=""> Explore </a>
+              </li>
+              <li class="header-nav-item header-mobile">
+                <a href="" class="header-nav-profile">
+                  <div class="header-avatar-container">
+                    <img src="./assets/unsplash.jpg" alt="" class="header-avatar-img" />
+                  </div>
+                  <strong class="header-nav-username">lexie-kaia</strong>
+                </a>
+              </li>
+              <li class="header-nav-item header-mobile">
+                <a href=""> Sign out </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header-item header-mobile">
+            <button type="button" class="header-nav-btn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+          <div class="header-item header-desktop">
+            <button class="header-profile-avatar">
+              <div class="header-avatar-container">
+                <img src="./assets/unsplash.jpg" alt="" class="header-avatar-img" />
+              </div>
+              <div class="header-avatar-arrow">
+                <i class="fas fa-sort-down"></i>
+              </div>
+            </button>
+          </div>
+          <div class="header-dropdown-menu header-hide header-desktop">
+            <div class="header-dropdown-arrow"></div>
+            <h4 class="header-dropdown-profile">
+              <a href="">Signed in as <strong class="header-dropdown-username">lexie-kaia</strong></a>
+            </h4>
+            <ul class="header-dropdown-list">
+              <li>
+                <a href="" class="header-dropdown-item">Your Profile</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Your repositories</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Your codespaces</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Your projects</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Your stars</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Your gists</a>
+              </li>
+            </ul>
+            <ul class="header-dropdown-list">
+              <li>
+                <a href="" class="header-dropdown-item">Upgrade</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Feature preview</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Help</a>
+              </li>
+              <li>
+                <a href="" class="header-dropdown-item">Settings</a>
+              </li>
+            </ul>
+            <ul class="header-dropdown-list">
+              <li>
+                <a href="" class="header-dropdown-item">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Modal Popup</h2>
+      <div class="content">
+        <div class="modal">
+          <button type="button" class="modal-btn-fill js-open-modal">Join Pro</button>
+
+          <div class="modal-wrapper modal-hidden js-modal">
+            <div class="modal-content">
+              <h4 class="modal-title">
+                Unlimited downloads.<br />
+                Our best content.<br />
+                No attribution.
+              </h4>
+              <p class="modal-body">
+                As low as <span aria-label="9 dollars per month">$9/mo</span><br />
+                Buy subscription or credit packs
+              </p>
+              <button type="button" class="modal-btn-fill js-join-modal"><a href="#">Join Pro</a></button>
+              <button type="button" class="modal-btn-close js-close-modal">×</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Profile</h2>
+      <div class="content content-full">
+        <div class="profile">
+          <div class="profile-wrapper">
+            <div class="profile-avatar">
+              <img src="./assets/unsplash.jpg" alt="" class="avatar-img" />
+            </div>
+
+            <div>
+              <h4 class="profile-username">lexie-kaia</h4>
+              <ul class="profile-count desktop-only">
+                <li class="count-item">
+                  <span class="count-key">Posts</span>
+                  <span class="count-value">112</span>
+                </li>
+                <li class="count-item">
+                  <span class="count-key">Followers</span>
+                  <span class="count-value">274</span>
+                </li>
+                <li class="count-item">
+                  <span class="count-key">Following</span>
+                  <span class="count-value">238</span>
+                </li>
+              </ul>
+              <div class="profile-bio">
+                <h4 class="bio-name">Lexie Kaia</h4>
+                <p class="bio-desc">#frontend #html #css #javascript</p>
+                <a href="https://github.com/lexie-kaia" class="bio-link">github.com/lexie-kaia</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-only">
+            <ul class="profile-count">
+              <li class="count-item">
+                <span class="count-key">Posts</span>
+                <span class="count-value">112</span>
+              </li>
+              <li class="count-item">
+                <span class="count-key">Followers</span>
+                <span class="count-value">274</span>
+              </li>
+              <li class="count-item">
+                <span class="count-key">Following</span>
+                <span class="count-value">238</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Google Search Result Item</h2>
+      <div class="content">
+        <div class="search">
+          <cite class="search-link">
+            <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">
+              https://www.w3schools.com <span class="search-breadcrumbs">› html › html5_semantic_elements</span>
+            </a>
+          </cite>
+          <h4 class="search-title">
+            <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">
+              HTML5 Semantic Elements - W3Schools
+            </a>
+          </h4>
+          <div class="search-body">
+            Oct 27, 2019 - Examples of non-<strong>semantic elements</strong>: &lt;div&gt; and &lt;span&gt; - Tells
+            nothing about its content. ... HTML5 <strong>semantic elements</strong> are supported in all modern
+            browsers. ... So, on the Internet, you will find HTML pages with &lt;section&gt; elements containing ...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Feature Box</h2>
+      <div class="content">
+        <div class="feature">
+          <div class="feature-img">
+            <img
+              src="https://wac-cdn.atlassian.com/dam/jcr:bc1f15f9-3b2e-4c30-9313-0ebd6175f18c/File%20Cabinet@2x.png?cdnVersion=676"
+              alt=""
+            />
+          </div>
+          <h4 class="feature-title">Free unlimited private repositories</h4>
+          <p class="feature-desc">
+            Free for small teams under 5 and priced to scale with Standard (<span
+              aria-label="3 dollars per user per month"
+              >$3/user/mo</span
+            >) or Premium (<span aria-label="6 dollars per user per month">$6/user/mo</span>) plans.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Product Card</h2>
+
+      <div class="content">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img
+              src="https://user-images.githubusercontent.com/19285811/69318246-becd7980-0c77-11ea-8324-6c43e2de8cf2.png"
+              alt=""
+              class="card-img"
+            />
+          </div>
+          <div class="card-title-wrapper">
+            <h4 class="card-title">혼자가 혼자에게</h4>
+            <strong class="card-badge" aria-label="오늘의 책 선정">오늘의 책</strong>
+          </div>
+          <div class="card-author-wrapper">
+            <strong class="card-author" aria-label="저자 이병률">이병률</strong>
+          </div>
+          <div class="card-review-wrapper">
+            <strong class="card-review" aria-label="평점 9.4">
+              <span class="card-review-star" aria-hidden="true">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half"></i>
+              </span>
+              9.4
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Feed</h2>
+      <div class="content">
+        <div class="feed">
+          <div class="feed-profile">
+            <div class="feed-profile-block">
+              <a href="" class="feed-profile-avatar">
+                <img src="./assets/unsplash.jpg" alt="" / class="feed-profile-avatar-img">
+              </a>
+            </div>
+            <div class="feed-profile-block">
+              <h4 class="feed-profile-username">
+                <a href="">lexie-kaia</a>
+              </h4>
+              <span class="feed-profile-createdat" aria-label="30 minutes ago">30 min</span>
+            </div>
+            <button type="button" class="feed-follow-btn">Follow</button>
+          </div>
+          <div class="feed-content">
+            <p>
+              The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at
+              the cradle of true art and true science. — Albert Einstein
+            </p>
+          </div>
+          <div class="feed-footer">
+            <button type="button" class="feed-footer-btn feed-comment-btn"><i class="far fa-comment"></i> 0</button>
+            <button type="button" class="feed-footer-btn feed-like-btn"><i class="far fa-heart"></i> 10</button>
+          </div>
+          <form actoin="" method="" class="feed-comment">
+            <textarea name="comment" placeholder="Write a comment" class="feed-comment-input"></textarea>
+            <button type="submit" class="feed-submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Mail Inbox</h2>
+      <div class="content">
+        <table class="inbox">
+          <thead class="sr-only">
+            <th scope="scope">Actions</th>
+            <th scope="scope">Sender</th>
+            <th scope="scope">Title</th>
+            <th scope="scope">Timestamp</th>
+          </thead>
+          <tbody>
+            <tr class="unread">
+              <td>
+                <div class="inbox-actions">
+                  <div class="inbox-checkbox">
+                    <input type="checkbox" id="inbox-checked" />
+                    <label for="inbox-checked" class="sr-only"> Select this email </label>
+                  </div>
+                  <button type="button" class="inbox-star">
+                    <span class="sr-only"> Add to Favorites </span>
+                  </button>
+                </div>
+              </td>
+              <td>
+                <a href=""> Marketing </a>
+              </td>
+              <td>
+                <a href="#">
+                  <strong class="sr-only">Unread:</strong>
+                  <strong>Enjoy your 30 day free trial</strong>
+                  <span> - Unlimited downloads. Our best content. No attribution...</span>
+                </a>
+              </td>
+              <td>3:34 PM</td>
+            </tr>
+            <tr class="read">
+              <td>
+                <div class="inbox-actions">
+                  <div class="inbox-checkbox">
+                    <input type="checkbox" id="inbox-checked" />
+                    <label for="inbox-checked" class="sr-only"> Select this email </label>
+                  </div>
+                  <button type="button" class="inbox-star">
+                    <span class="sr-only"> Add to Favorites </span>
+                  </button>
+                </div>
+              </td>
+              <td>
+                <a href=""> Marketing </a>
+              </td>
+              <td>
+                <a href="#">
+                  <strong class="sr-only">Read:</strong>
+                  <strong>Enjoy your 30 day free trial</strong>
+                  <span> - Unlimited downloads. Our best content. No attribution...</span>
+                </a>
+              </td>
+              <td>3:34 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>BreadCrumbs & Pagination</h2>
+
+      <div class="content content-navigation">
+        <div class="breadcrumbs">
+          <a href="" class="breadcrumbs-root">lexie-kaia</a>
+          <span> / </span>
+          <a href="" class="breadcrumbs-current">web_toy_box</a>
+        </div>
+
+        <div class="pagination">
+          <a class="pagination-btn pagination-disabled">prev</a>
+          <ol class="pagination-list">
+            <li class="pagination-item"><a class="pagination-btn pagination-current">1</a></li>
+            <li class="pagination-item"><a class="pagination-btn">2</a></li>
+            <li class="pagination-item"><a class="pagination-btn">3</a></li>
+            <li class="pagination-item"><a class="pagination-btn">4</a></li>
+            <li class="pagination-item"><a class="pagination-btn">5</a></li>
+            <li class="pagination-item">
+              <a class="pagination-btn pagination-disabled">...</a>
+            </li>
+            <li class="pagination-item"><a class="pagination-btn">6</a></li>
+            <li class="pagination-item"><a class="pagination-btn">7</a></li>
+            <li class="pagination-item"><a class="pagination-btn">8</a></li>
+          </ol>
+          <a class="pagination-btn">next</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

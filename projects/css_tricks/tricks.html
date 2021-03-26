@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Tricks</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./tricks.css" />
+    <script src="https://kit.fontawesome.com/381cdc4554.js" crossorigin="anonymous"></script>
+    <script src="./tricks.js" defer></script>
+  </head>
+  <body>
+    <h1>CSS Tricks</h1>
+
+    <div class="container">
+      <h2>CSS Trick 1: Centering</h2>
+      <div class="content">
+        <div class="centering">
+          <div class="centering-item">
+            <div class="item-desc">
+              <h3>Text</h3>
+              <p>
+                text-align:center;<br />
+                line-height:&lt;component height&gt;;
+              </p>
+            </div>
+
+            <div class="item-model">
+              <div class="model-inner inner-text">TEXT</div>
+            </div>
+          </div>
+
+          <div class="centering-item">
+            <div class="item-desc">
+              <h3>Magin</h3>
+              <p>margin: 0 auto;</p>
+            </div>
+
+            <div class="item-model">
+              <div class="model-outer">
+                <div class="model-inner inner-margin">TEXT</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="centering-item">
+            <div class="item-desc">
+              <h3>Flex</h3>
+              <p>
+                display: flex;<br />
+                justify-content: center;<br />
+                align-items: center;
+              </p>
+            </div>
+
+            <div class="item-model">
+              <div class="model-outer outer-flex">
+                <div class="model-inner inner-flex">TEXT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>CSS Trick 2: Hide & Show</h2>
+      <div class="content">
+        <div class="visibility">
+          <div class="visibility-item">
+            <div class="item-desc">
+              <h3>Display</h3>
+              <p>diplay:none;</p>
+            </div>
+            <div class="item-model">
+              <div class="model-target target-display">CLICK ME</div>
+              <div class="model-hide hide-display">TEXT</div>
+              <div class="model-box"></div>
+            </div>
+          </div>
+
+          <div class="visibility-item">
+            <div class="item-desc">
+              <h3>Opacity & Visibility</h3>
+              <p>
+                opactiy:0;<br />
+                visibility:hidden;
+              </p>
+            </div>
+            <div class="item-model">
+              <div class="model-target target-visibility">CLICK ME</div>
+              <div class="model-hide hide-visibility">TEXT</div>
+              <div class="model-box"></div>
+            </div>
+          </div>
+
+          <div class="visibility-item">
+            <div class="item-desc">
+              <h3>Height</h3>
+              <p>
+                height: 0;<br />
+                overflow: hidden;
+              </p>
+            </div>
+            <div class="item-model">
+              <div class="model-target target-height">CLICK ME</div>
+              <div class="model-hide hide-height">TEXT</div>
+              <div class="model-box"></div>
+            </div>
+          </div>
+
+          <div class="visibility-item">
+            <div class="item-desc">
+              <h3>translateY</h3>
+              <p>
+                transform: translateY(-100%);<br />
+                (wrapper-)overflow: hidden;
+              </p>
+            </div>
+            <div class="item-model">
+              <div class="model-target target-translate">CLICK ME</div>
+              <div class="hide-translate-wrapper">
+                <div class="model-hide hide-translate">TEXT</div>
+              </div>
+              <div class="model-box"></div>
+            </div>
+          </div>
+
+          <div class="visibility-item">
+            <div class="item-desc">
+              <h3>ScaleY</h3>
+              <p>
+                transform: scaleY(0);<br />
+                transform-origin: top;
+              </p>
+            </div>
+            <div class="item-model">
+              <div class="model-target target-scale">CLICK ME</div>
+              <div class="model-hide hide-scale">TEXT</div>
+              <div class="model-box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

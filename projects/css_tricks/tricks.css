@@ -1,0 +1,209 @@
+body {
+  color: #212121;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e6e6e6;
+}
+
+body::after {
+  content: 'lexie-kaia';
+  display: block;
+  margin: 4rem 0;
+  color: #212121;
+  font-size: 14px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    margin-top: 10rem;
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.container {
+  padding: 8rem 0 10rem;
+}
+
+/* .container:nth-child(2) {
+  padding: 4rem 0 10rem;
+} */
+
+/* .container:nth-child(4) {
+  background-color: #f5f5f5;
+} */
+
+.content {
+  margin: 0 auto;
+  max-width: 1320px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.content-full {
+  padding: 0;
+}
+
+/* centering */
+.centering {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.centering-item .item-desc {
+  height: 7.5rem;
+}
+
+.model-outer {
+  background: white;
+}
+
+.model-inner {
+  width: 12rem;
+  height: 8rem;
+  background: #212121;
+  color: #e6e6e6;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.inner-text {
+  width: 100%;
+  height: 16rem;
+  line-height: 16rem;
+}
+
+.inner-margin {
+  margin: 0 auto;
+  height: 16rem;
+  line-height: 16rem;
+}
+
+.outer-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+}
+
+.inner-flex {
+  line-height: 8rem;
+}
+
+/* hide & show */
+.visibility {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+}
+
+.visibility-item .item-desc {
+  height: 6rem;
+}
+
+.model-target,
+.model-box,
+.model-hide {
+  width: 100%;
+  height: 4rem;
+  background: white;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center;
+  line-height: 4rem;
+}
+
+.model-target {
+  cursor: pointer;
+}
+
+.model-target:hover {
+  text-decoration: underline;
+}
+
+.model-hide {
+  height: 8rem;
+  line-height: 8rem;
+  font-size: 4rem;
+  background: #212121;
+  color: #e6e6e6;
+}
+
+.hide-display {
+  display: none;
+}
+
+.show-display {
+  display: block;
+}
+
+.hide-visibility {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s;
+}
+
+.show-visibility {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide-height {
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.show-height {
+  height: 8rem;
+}
+
+.hide-translate-wrapper {
+  overflow: hidden;
+}
+
+.hide-translate {
+  transform: translateY(-100%);
+  transition: 0.3s;
+}
+
+.show-translate {
+  transform: translateY(0);
+}
+
+.hide-scale {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: 0.3s;
+}
+
+.show-scale {
+  transform: scaleY(1);
+}

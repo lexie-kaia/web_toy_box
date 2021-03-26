@@ -1,0 +1,73 @@
+.content-navigation {
+  flex-direction: column;
+  align-items: center;
+  color: #586069;
+}
+
+.breadcrumbs {
+  font-size: 20px;
+}
+
+.breadcrumbs::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: center / cover no-repeat url(./assets/icon-repository.svg);
+  transform: translateY(4px);
+}
+
+.breadcrumbs-root {
+  color: #0366d6;
+}
+
+.breadcrumbs-current {
+  color: #0366d6;
+  font-weight: bold;
+}
+
+.breadcrumbs-root:hover,
+.breadcrumbs-current:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  margin-top: 48px;
+  border: 1px solid #e1e4e8;
+}
+
+.pagination-list {
+  display: flex;
+}
+
+.pagination-btn {
+  display: block;
+  padding: 0 14px;
+  height: 40px;
+  background: white;
+  color: #0366d6;
+  font-weight: 500;
+  line-height: 39px;
+  cursor: pointer;
+}
+
+.pagination-list .pagination-btn {
+  border-left: 1px solid #e1e4e8;
+}
+
+.pagination-list .pagination-item:last-child .pagination-btn {
+  border-right: 1px solid #e1e4e8;
+}
+
+.pagination-disabled {
+  color: #d1d5da;
+  background: #fafbfc;
+  cursor: default;
+}
+
+.pagination-current {
+  color: white;
+  background: #0366d6;
+  border: 1px solid #0366d6;
+}
