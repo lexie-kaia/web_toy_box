@@ -5,397 +5,464 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tweeter | Twitter Clone Coding</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./tweeter.css" />
     <script src="https://kit.fontawesome.com/381cdc4554.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header class="header">
-      <!-- navigation menu -->
-      <div class="header__navigation-menu">
-        <h1>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </h1>
-        <nav>
-          <h2 class="sr-only">Global navigation menu</h2>
-          <ul>
-            <li>
-              <a href="">
-                <span class="sr-only">Current page</span>
-                <span><i class="fas fa-house-user"></i></span>Home
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="fas fa-hashtag"></i></span>Explore
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span>
-                  <i class="far fa-bell"></i>
-                  <strong aria-label="5 unread notifications">5</strong>
+    <div class="body">
+      <header class="header">
+        <div class="header_wrapper">
+          <!-- navigation menu -->
+          <div class="header_nav">
+            <h1 class="fs-blue">
+              <a href="#" class="btn-48 nav_menu">
+                <span class="icon-28">
+                  <i class="fab fa-twitter"></i>
                 </span>
-                Notifications
               </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="far fa-envelope"></i></span>Messages
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="far fa-bookmark"></i></span>Bookmarks
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="far fa-list-alt"></i></span>Lists
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="fas fa-at"></i></span>Connect
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span><i class="fas fa-user"></i></span>Profile
-              </a>
-            </li>
-            <li>
-              <button type="button">
-                <span><i class="fas fa-ellipsis-h"></i></span>More
-              </button>
-            </li>
-          </ul>
-          <!-- more menu items -->
-          <div class="header__more-menu">
-            <ul>
-              <li>
-                <a href="">
-                  <span><i class="far fa-bookmark"></i></span>Bookmarks
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="far fa-comment-dots"></i></span>Topics
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="fas fa-bolt"></i></span>Moments
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="far fa-file-alt"></i></span>Newsletters
-                  <span aria-label="New Feature">NEW</span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="far fa-hand-point-up"></i></span>Twitter Ads
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="far fa-chart-bar"></i></span>Analytics
-                </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="">
-                  <span><i class="fas fa-cog"></i></span>Settings and privacy
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="far fa-question-circle"></i></span>Help Center
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="fas fa-paint-brush"></i></span>Display
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span><i class="fas fa-universal-access"></i></span>Keyboard shortcuts
-                </a>
-              </li>
-            </ul>
+            </h1>
+            <nav>
+              <h2 class="sr-only">Global navigation menu</h2>
+              <ul>
+                <li class="nav_table">
+                  <a href="#" class="btn-48 nav_menu current">
+                    <span class="sr-only">Current page</span>
+                    <span class="icon-28">
+                      <i class="fas fa-house-user"></i>
+                    </span>
+                    <span class="nav_menu_text">Home</span>
+                  </a>
+                </li>
+
+                <li class="nav_table">
+                  <a href="#" class="btn-48 nav_menu">
+                    <span class="icon-28">
+                      <i class="fas fa-hashtag"></i>
+                    </span>
+                    <span class="nav_menu_text">Explore</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="#" class="btn-48 nav_menu">
+                    <span class="icon-28 notified">
+                      <i class="far fa-bell"></i>
+                      <strong aria-label="5 unread notifications" class="notif">5</strong>
+                    </span>
+                    <span class="nav_menu_text">Notifications</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="" class="btn-48 nav_menu">
+                    <span class="icon-28"><i class="far fa-envelope"></i></span>
+                    <span class="nav_menu_text">Messages</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="" class="btn-48 nav_menu">
+                    <span class="icon-28"><i class="far fa-bookmark"></i></span>
+                    <span class="nav_menu_text">Bookmarks</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="" class="btn-48 nav_menu">
+                    <span class="icon-28"><i class="far fa-list-alt"></i></span>
+                    <span class="nav_menu_text">Lists</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="" class="btn-48 nav_menu">
+                    <span class="icon-28"><i class="fas fa-at"></i></span>
+                    <span class="nav_menu_text">Connect</span>
+                  </a>
+                </li>
+                <li class="nav_table">
+                  <a href="" class="btn-48 nav_menu">
+                    <span class="icon-28"><i class="fas fa-user"></i></span>
+                    <span class="nav_menu_text">Profile</span>
+                  </a>
+                </li>
+                <div class="dropdown_wrapper">
+                  <li class="nav_table">
+                    <button type="button" class="btn-48 nav_menu">
+                      <span class="icon-28"><i class="fas fa-ellipsis-h"></i></span>
+                      <span class="nav_menu_text">More</span>
+                    </button>
+                  </li>
+                  <!-- nav more dropdown -->
+                  <div class="dropdown nav_more">
+                    <ul class="dropdown_list">
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-bookmark"></i></span>
+                          <span class="dropdown_menu_text">Bookmarks</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-comment-dots"></i></span>
+                          <span class="dropdown_menu_text">Topics</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="fas fa-bolt"></i></span>
+                          <span class="dropdown_menu_text">Moments</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-file-alt"></i></span>
+                          <span class="dropdown_menu_text">Newsletters</span>
+                          <span aria-label="New Feature" class="badge-20">NEW</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-hand-point-up"></i></span>
+                          <span class="dropdown_menu_text">Twitter Ads</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-chart-bar"></i></span>
+                          <span class="dropdown_menu_text">Analytics</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <ul class="dropdown_list">
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="fas fa-cog"></i></span>
+                          <span class="dropdown_menu_text">Settings and privacy</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="far fa-question-circle"></i></span>
+                          <span class="dropdown_menu_text">Help Center</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="fas fa-paint-brush"></i></span>
+                          <span class="dropdown_menu_text">Display</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="btn-52 dropdown_menu">
+                          <span class="icon-20"><i class="fas fa-universal-access"></i></span>
+                          <span class="dropdown_menu_text">Keyboard shortcuts</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+
+              <!-- tweet btn -->
+              <button type="button" class="btn-48 nav_tweet">Tweet</button>
+              <div class="tweet_modal">
+                <!-- tweet modal -->
+                <!-- tweet modal -->
+                <!-- tweet modal -->
+              </div>
+            </nav>
           </div>
 
-          <button type="button">Tweet</button>
-          <div class="tweet__modal">
-            <!-- tweet modal -->
-            <!-- tweet modal -->
-            <!-- tweet modal -->
-          </div>
-        </nav>
-      </div>
+          <!-- account menu -->
+          <div class="header_account">
+            <button type="menu" class="btn-64 account_menu">
+              <div class="profile-c">
+                <div class="profile-i account_profile">
+                  <img src="./assets/tweeter_profile_2.jpg" alt="" />
+                </div>
+                <div class="profile-t">
+                  <span class="fs-h2"> Lexie-Kaia </span>
+                  <span class="fs-s"> @1234567890 </span>
+                </div>
+              </div>
 
-      <!-- account menu -->
-      <div class="header__account-menu">
-        <button type="menu">
-          <div class="account-menu__avatar">
-            <img src="./assets/tweeter_profile_2.jpg" alt="" />
-          </div>
-          <div class="account-menu__profile">
-            <span> Lexie-Kaia </span>
-            <span> @1234567890 </span>
-          </div>
-          <div class="account-menu__icon">
-            <i class="fas fa-ellipsis-h"></i>
-          </div>
-        </button>
-      </div>
-    </header>
-
-    <!-- mobile navigation menu -->
-    <!-- mobile navigation menu -->
-    <!-- mobile navigation menu -->
-
-    <!-- mobile account-info -->
-    <!-- mobile account-info -->
-    <!-- mobile account-info -->
-
-    <main>
-      <header>
-        <h2>Home</h2>
-        <button type="button" aria-label="Top Tweets On">
-          <span><i class="fas fa-meteor"></i></span>
-        </button>
-        <div class="top-tweet__modal">
-          <div>
-            <span><i class="fas fa-meteor"></i></span>
-            <span>Home shows you top Tweets first</span>
-          </div>
-          <div>
-            <button>
-              <span><i class="fas fa-exchange-alt"></i></span>
-              <span>
-                <span> See latest Tweets instead </span> <br />
-                <span> You'll see Tweets show up as they happen. </span>
-              </span>
+              <span class="icon-20"><i class="fas fa-ellipsis-h"></i></span>
             </button>
-          </div>
-          <div>
-            <a href="">
-              <span><i class="fas fa-cog"></i></span>
-              <span>View content preferences</span>
-            </a>
           </div>
         </div>
       </header>
 
-      <section>
-        <h2>What's happening?</h2>
-        <a hrer=""><img src="./assets/tweeter_profile_2.jpg" alt="" /></a>
-        <form action="#" method="POST">
-          <textarea name="" id="" placeholder="What's happening?" maxlength="280"></textarea>
-          <button type="button">
-            <span>
-              <i class="fas fa-globe"></i>
-            </span>
-            Everyone can Reply
-          </button>
-          <!-- reply modal -->
-          <!-- reply modal -->
-          <!-- reply modal -->
-          <div>
-            <div>
-              <button type="button" aria-label="Add phothos or video"><i class="far fa-images"></i></button>
-              <button type="button" aria-label="Add a GIF"><i class="fas fa-search-plus"></i></button>
-              <button type="button" aria-label="Add poll"><i class="fas fa-poll-h"></i></button>
-              <button type="button" aria-label="Add emoji"><i class="far fa-smile"></i></button>
-              <button type="button" aria-label="Schedule Tweet"><i class="far fa-calendar-alt"></i></button>
-            </div>
-            <div>
-              <strong aria-label="0 out of 280 characters"></strong>
-              <div class="bar"></div>
-              <button type="button" aria-label="Add another Tweet"><i class="fas fa-plus"></i></button>
-              <button type="submit">Tweet</button>
-            </div>
-          </div>
-        </form>
-      </section>
+      <!-- mobile navigation menu -->
+      <!-- mobile navigation menu -->
+      <!-- mobile navigation menu -->
 
-      <section>
-        <h2>Your Timeline</h2>
-        <ol>
-          <li>
-            <article>
-              <h3 class="sr-only">A Tweet from anonymous</h3>
-              <a hrer=""><img src="./assets/tweeter_profile-1.jpg" alt="" /></a>
-              <header>
-                <dl>
-                  <div>
-                    <dt class="sr-only">Name</dt>
-                    <dd><a href="">anonymous</a></dd>
-                  </div>
-                  <div>
-                    <dt class="sr-only">Username</dt>
-                    <dd><a href="">@anonymous</a></dd>
-                  </div>
-                  <div>
-                    <dt class="sr-only">Posted</dt>
-                    <dd><a href="" aria-label="5 seconds ago">5s</a></dd>
-                  </div>
-                </dl>
-                <button type="button"><i class="fas fa-ellipsis-h"></i></button>
+      <!-- mobile account-info -->
+      <!-- mobile account-info -->
+      <!-- mobile account-info -->
+
+      <main class="main">
+        <div class="main_header_wrapper">
+          <header class="main_header">
+            <h2 class="fs-h1">Home</h2>
+            <div class="dropdown_wrapper">
+              <button type="button" aria-label="Top Tweets On" class="btn-i">
+                <span class="icon-20"><i class="fas fa-meteor fs-blue"></i></span>
+              </button>
+              <!-- top tweet dropdown -->
+              <div class="dropdown main_top">
+                <ul class="dropdown_list">
+                  <li class="fs-center">
+                    <div class="dropdown_item">
+                      <span class="main_top_icon"><i class="fas fa-meteor"></i></span>
+                      <span class="fs-h1">Home shows you top Tweets first</span>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="dropdown_list">
+                  <li>
+                    <button class="btn-52 dropdown_menu">
+                      <span class="icon-20"><i class="fas fa-exchange-alt"></i></span>
+                      <span class="dropdown_menu_text">
+                        <span> See latest Tweets instead </span> <br />
+                        <span> You'll see Tweets show up as they happen. </span>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <a href="" class="btn-52 dropdown_menu">
+                      <span class="icon-20"><i class="fas fa-cog"></i></span>
+                      <span class="dropdown_menu_text">View content preferences</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </header>
+        </div>
+
+        <section class="main_section">
+          <h2 class="sr-only">What's happening?</h2>
+          <div class="section_container">
+            <a hrer="" class="profile-i">
+              <img src="./assets/tweeter_profile_2.jpg" alt="" />
+            </a>
+            <form action="#" method="POST" class="section_body">
+              <textarea name="" id="" placeholder="What's happening?" maxlength="280" class="tweet_input"></textarea>
+              <!-- <button type="button">
+                <span>
+                  <i class="fas fa-globe"></i>
+                </span>
+                Everyone can Reply
+              </button> -->
+              <!-- reply modal -->
+              <!-- reply modal -->
+              <!-- reply modal -->
+              <div>
                 <div>
+                  <button type="button" aria-label="Add phothos or video"><i class="far fa-images"></i></button>
+                  <button type="button" aria-label="Add a GIF"><i class="fas fa-search-plus"></i></button>
+                  <button type="button" aria-label="Add poll"><i class="fas fa-poll-h"></i></button>
+                  <button type="button" aria-label="Add emoji"><i class="far fa-smile"></i></button>
+                  <button type="button" aria-label="Schedule Tweet"><i class="far fa-calendar-alt"></i></button>
+                </div>
+                <div>
+                  <strong aria-label="0 out of 280 characters"></strong>
+                  <div class="bar"></div>
+                  <button type="button" aria-label="Add another Tweet"><i class="fas fa-plus"></i></button>
+                  <button type="submit">Tweet</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section>
+          <h2>Your Timeline</h2>
+          <ol>
+            <li>
+              <article>
+                <h3 class="sr-only">A Tweet from anonymous</h3>
+                <a hrer=""><img src="./assets/tweeter_profile-1.jpg" alt="" /></a>
+                <header>
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Name</dt>
+                      <dd><a href="">anonymous</a></dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Username</dt>
+                      <dd><a href="">@anonymous</a></dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Posted</dt>
+                      <dd><a href="" aria-label="5 seconds ago">5s</a></dd>
+                    </div>
+                  </dl>
+                  <button type="button"><i class="fas fa-ellipsis-h"></i></button>
+                  <div>
+                    <ul>
+                      <li>
+                        <button>
+                          <span><i class="far fa-frown"></i></span>
+                          <span>Not interested in this Tweet</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="fas fa-user-minus"></i></span>
+                          <span>Unfollow @anonymous</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="far fa-list-alt"></i></span>
+                          <span>Add/remove @anonymous from Lists</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="fas fa-volume-mute"></i></span>
+                          <span>Mute @anonymous</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="fas fa-ban"></i></span>
+                          <span>Block @anonymous</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="far fa-frown"></i></span>
+                          <span>Not interested in this Tweet</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="fas fa-code"></i></span>
+                          <span>Embed Tweet</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <span><i class="far fa-flag"></i></span>
+                          <span>Report Tweet</span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </header>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex enim nemo maiores voluptate repellendus,
+                  voluptas voluptates cumque eaque quaerat et placeat iusto omnis. Odit enim expedita dolorum provident
+                  dolores sit!
+                </p>
+                <div>
+                  <img src="./assets/tweeter-1.jpg" alt="" />
+                </div>
+                <footer>
                   <ul>
                     <li>
-                      <button>
-                        <span><i class="far fa-frown"></i></span>
-                        <span>Not interested in this Tweet</span>
+                      <button aria-label="Reply">
+                        <span><i class="far fa-comment"></i></span>
+                        <strong aria-label="3 replies">3</strong>
                       </button>
                     </li>
                     <li>
-                      <button>
-                        <span><i class="fas fa-user-minus"></i></span>
-                        <span>Unfollow @anonymous</span>
+                      <button aria-label="Retweet">
+                        <span><i class="fas fa-retweet"></i></span>
+                        <strong aria-label="3 retweets">3</strong>
                       </button>
                     </li>
                     <li>
-                      <button>
-                        <span><i class="far fa-list-alt"></i></span>
-                        <span>Add/remove @anonymous from Lists</span>
+                      <button aria-label="Like">
+                        <span><i class="far fa-heart"></i></span>
+                        <strong aria-label="3 likes">3</strong>
                       </button>
                     </li>
                     <li>
-                      <button>
-                        <span><i class="fas fa-volume-mute"></i></span>
-                        <span>Mute @anonymous</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <span><i class="fas fa-ban"></i></span>
-                        <span>Block @anonymous</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <span><i class="far fa-frown"></i></span>
-                        <span>Not interested in this Tweet</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <span><i class="fas fa-code"></i></span>
-                        <span>Embed Tweet</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button>
-                        <span><i class="far fa-flag"></i></span>
-                        <span>Report Tweet</span>
+                      <button aria-label="Share">
+                        <span><i class="fas fa-external-link-alt"></i></span>
                       </button>
                     </li>
                   </ul>
-                </div>
-              </header>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex enim nemo maiores voluptate repellendus,
-                voluptas voluptates cumque eaque quaerat et placeat iusto omnis. Odit enim expedita dolorum provident
-                dolores sit!
-              </p>
-              <div>
-                <img src="./assets/tweeter-1.jpg" alt="" />
-              </div>
-              <footer>
-                <ul>
-                  <li>
-                    <button aria-label="Reply">
-                      <span><i class="far fa-comment"></i></span>
-                      <strong aria-label="3 replies">3</strong>
-                    </button>
-                  </li>
-                  <li>
-                    <button aria-label="Retweet">
-                      <span><i class="fas fa-retweet"></i></span>
-                      <strong aria-label="3 retweets">3</strong>
-                    </button>
-                  </li>
-                  <li>
-                    <button aria-label="Like">
-                      <span><i class="far fa-heart"></i></span>
-                      <strong aria-label="3 likes">3</strong>
-                    </button>
-                  </li>
-                  <li>
-                    <button aria-label="Share">
-                      <span><i class="fas fa-external-link-alt"></i></span>
-                    </button>
-                  </li>
-                </ul>
-              </footer>
-            </article>
-          </li>
-        </ol>
-      </section>
-    </main>
+                </footer>
+              </article>
+            </li>
+          </ol>
+        </section>
+      </main>
 
-    <div>
-      <aside>
-        <h2 class="sr-only">Search Tweeter</h2>
-        <div>
-          <span>
-            <i class="fas fa-search"></i>
-          </span>
-          <input type="text" placeholder="Search Tweeter" />
+      <aside class="aside">
+        <div class="aside_wrapper">
+          <header class="aside_header">
+            <h2 class="sr-only">Search Tweeter</h2>
+            <div>
+              <label class="search_wrapper">
+                <input type="text" placeholder="Search Tweeter" class="btn btn-48 search_input" />
+                <span class="icon-20 search_icon">
+                  <i class="fas fa-search"></i>
+                </span>
+              </label>
+            </div>
+          </header>
+
+          <aside class="list">
+            <header class="list_header fs-h1">
+              <h2>Trends for you</h2>
+              <button class="btn-i">
+                <span class="icon-20"><i class="fas fa-cog"></i></span>
+              </button>
+            </header>
+            <ul>
+              <li class="list_item">
+                <a href="#" class="list_content">
+                  <span class="fs-t">Trending in South Korea</span>
+                  <strong class="fs-h2">anonymous</strong>
+                  <span class="fs-t trend_count">33K Tweets</span>
+                </a>
+                <button class="btn-i list_btn">
+                  <span class="icon-20"><i class="fas fa-ellipsis-h"></i></span>
+                </button>
+              </li>
+              <li class="list_item">
+                <a href="#" class="list_content">
+                  <span class="fs-t">Trending in South Korea</span>
+                  <strong class="fs-h2">anonymous</strong>
+                  <span class="fs-t trend_count">33K Tweets</span>
+                </a>
+                <button class="btn-i list_btn">
+                  <span class="icon-20"><i class="fas fa-ellipsis-h"></i></span>
+                </button>
+              </li>
+            </ul>
+            <footer class="list_footer">
+              <button class="list_more">Show more</button>
+            </footer>
+          </aside>
+
+          <footer class="footer">
+            <ul class="footer_list">
+              <li class="footer_item">
+                <a href="#" target="_blank" class="btn-t">Terms of Sevice</a>
+              </li>
+              <li class="footer_item">
+                <a href="#" target="_blank" class="btn-t">Privacy Policy</a>
+              </li>
+              <li class="footer_item">
+                <a href="#" target="_blank" class="btn-t">Cookie Policy</a>
+              </li>
+              <li class="footer_item">
+                <a href="#" target="_blank" class="btn-t">Ads info</a>
+              </li>
+              <li class="footer_item">
+                <button type="button" class="btn-t">More <i class="fas fa-ellipsis-h"></i></button>
+              </li>
+              <li class="footer_item">
+                <span class="fs-t">&copy; 2021 Tweeter. Inc.</span>
+              </li>
+            </ul>
+          </footer>
         </div>
       </aside>
-
-      <aside>
-        <header>
-          <h2>Trends for you</h2>
-          <button>
-            <i class="fas fa-cog"></i>
-          </button>
-        </header>
-        <ul>
-          <li>
-            <a hrer="">
-              <span>Trending in South Korea</span>
-              <strong>anonymous</strong>
-              <span>33K Tweets</span>
-            </a>
-            <button>
-              <i class="fas fa-ellipsis-h"></i>
-            </button>
-          </li>
-        </ul>
-        <footer>
-          <button>Show more</button>
-        </footer>
-      </aside>
-
-      <footer>
-        <ul>
-          <li>
-            <a href="" target="_blank">Terms of Sevice</a>
-          </li>
-          <li>
-            <a href="" target="_blank">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="" target="_blank">Cookie Policy</a>
-          </li>
-          <li>
-            <a href="" target="_blank">Ads info</a>
-          </li>
-          <li>
-            <button type="button">More <i class="fas fa-ellipsis-h"></i></button>
-          </li>
-          <li>
-            <span>&copy; 2021 Tweeter. Inc.</span>
-          </li>
-        </ul>
-      </footer>
     </div>
   </body>
 </html>
