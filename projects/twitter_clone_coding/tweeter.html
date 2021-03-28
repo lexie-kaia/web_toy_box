@@ -178,7 +178,7 @@
                 <div class="profile-i account_profile">
                   <img src="./assets/tweeter_profile_2.jpg" alt="" />
                 </div>
-                <div class="profile-t">
+                <div class="profile-v">
                   <span class="fs-h2"> Lexie-Kaia </span>
                   <span class="fs-s"> @1234567890 </span>
                 </div>
@@ -240,11 +240,11 @@
 
         <section class="main_section">
           <h2 class="sr-only">What's happening?</h2>
-          <div class="section_container">
+          <div class="tweet_container">
             <a hrer="" class="profile-i">
               <img src="./assets/tweeter_profile_2.jpg" alt="" />
             </a>
-            <form action="#" method="POST" class="section_body">
+            <form action="#" method="POST" class="tweet_content">
               <textarea name="" id="" placeholder="What's happening?" maxlength="280" class="tweet_input"></textarea>
               <!-- <button type="button">
                 <span>
@@ -255,136 +255,179 @@
               <!-- reply modal -->
               <!-- reply modal -->
               <!-- reply modal -->
-              <div>
+              <div class="tweet_footer">
+                <ul class="tweet_footer_btns">
+                  <li>
+                    <button type="button" aria-label="Add phothos or video" class="btn-i tweet_option">
+                      <span class="icon-20">
+                        <i class="far fa-images fs-blue"></i>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" aria-label="Add a GIF" class="btn-i tweet_option">
+                      <span class="icon-20">
+                        <i class="fas fa-search-plus fs-blue"></i>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" aria-label="Add poll" class="btn-i tweet_option">
+                      <span class="icon-20">
+                        <i class="fas fa-poll-h fs-blue"></i>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" aria-label="Add emoji" class="btn-i tweet_option">
+                      <span class="icon-20">
+                        <i class="far fa-smile fs-blue"></i>
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" aria-label="Schedule Tweet" class="btn-i tweet_option">
+                      <span class="icon-20">
+                        <i class="far fa-calendar-alt fs-blue"></i>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
                 <div>
-                  <button type="button" aria-label="Add phothos or video"><i class="far fa-images"></i></button>
-                  <button type="button" aria-label="Add a GIF"><i class="fas fa-search-plus"></i></button>
-                  <button type="button" aria-label="Add poll"><i class="fas fa-poll-h"></i></button>
-                  <button type="button" aria-label="Add emoji"><i class="far fa-smile"></i></button>
-                  <button type="button" aria-label="Schedule Tweet"><i class="far fa-calendar-alt"></i></button>
-                </div>
-                <div>
-                  <strong aria-label="0 out of 280 characters"></strong>
-                  <div class="bar"></div>
-                  <button type="button" aria-label="Add another Tweet"><i class="fas fa-plus"></i></button>
-                  <button type="submit">Tweet</button>
+                  <button type="submit" class="btn-40 main_tweet">Tweet</button>
                 </div>
               </div>
             </form>
           </div>
         </section>
 
+        <div class="main_hr"></div>
+
         <section>
-          <h2>Your Timeline</h2>
+          <h2 class="sr-only">Your Timeline</h2>
           <ol>
             <li>
-              <article>
+              <article class="feed_container">
                 <h3 class="sr-only">A Tweet from anonymous</h3>
-                <a hrer=""><img src="./assets/tweeter_profile-1.jpg" alt="" /></a>
-                <header>
-                  <dl>
-                    <div>
-                      <dt class="sr-only">Name</dt>
-                      <dd><a href="">anonymous</a></dd>
+                <a hrer="#" class="profile-i"> <img src="./assets/tweeter_profile-1.jpg" alt="" /></a>
+                <div class="feed_content">
+                  <header class="feed_header">
+                    <dl class="profile-f">
+                      <div>
+                        <dt class="sr-only">Name</dt>
+                        <dd><a href="#" class="fs-h2 feed_profile_name">pineapple</a></dd>
+                      </div>
+                      <div>
+                        <dt class="sr-only">Username</dt>
+                        <dd><span class="fs-s feed_profile_username">@pineapple</span></dd>
+                      </div>
+                      <div>
+                        <dt class="sr-only">Posted</dt>
+                        <dd><span aria-label="5 seconds ago" class="fs-s feed_profile_posted">5s</span></dd>
+                      </div>
+                    </dl>
+                    <div class="dropdown_wrapper">
+                      <button type="button" class="btn-i">
+                        <span class="icon-20">
+                          <i class="fas fa-ellipsis-h"></i>
+                        </span>
+                      </button>
+                      <div class="dropdown">
+                        <ul>
+                          <li>
+                            <button>
+                              <span><i class="far fa-frown"></i></span>
+                              <span>Not interested in this Tweet</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="fas fa-user-minus"></i></span>
+                              <span>Unfollow @anonymous</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="far fa-list-alt"></i></span>
+                              <span>Add/remove @anonymous from Lists</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="fas fa-volume-mute"></i></span>
+                              <span>Mute @anonymous</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="fas fa-ban"></i></span>
+                              <span>Block @anonymous</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="far fa-frown"></i></span>
+                              <span>Not interested in this Tweet</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="fas fa-code"></i></span>
+                              <span>Embed Tweet</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button>
+                              <span><i class="far fa-flag"></i></span>
+                              <span>Report Tweet</span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <dt class="sr-only">Username</dt>
-                      <dd><a href="">@anonymous</a></dd>
+                  </header>
+                  <div class="feed_body">
+                    <p class="feed_tweet">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex enim nemo maiores voluptate
+                      repellendus, voluptas voluptates cumque eaque quaerat et placeat iusto omnis. Odit enim expedita
+                      dolorum provident dolores sit!
+                    </p>
+                    <div class="feed_img">
+                      <img src="./assets/tweeter-1.jpg" alt="" />
                     </div>
-                    <div>
-                      <dt class="sr-only">Posted</dt>
-                      <dd><a href="" aria-label="5 seconds ago">5s</a></dd>
-                    </div>
-                  </dl>
-                  <button type="button"><i class="fas fa-ellipsis-h"></i></button>
-                  <div>
-                    <ul>
-                      <li>
-                        <button>
-                          <span><i class="far fa-frown"></i></span>
-                          <span>Not interested in this Tweet</span>
+                  </div>
+                  <footer class="feed_footer">
+                    <ul class="feed_footer_btns">
+                      <li class="feed_item">
+                        <button aria-label="Reply" class="btn-i feed_reply">
+                          <span class="icon-20">
+                            <i class="far fa-comment"></i>
+                          </span>
                         </button>
+                        <strong aria-label="3 replies" class="fs-s feed_reply_count">3</strong>
                       </li>
-                      <li>
-                        <button>
-                          <span><i class="fas fa-user-minus"></i></span>
-                          <span>Unfollow @anonymous</span>
+                      <li class="feed_item">
+                        <button aria-label="Retweet" class="btn-i feed_retweet">
+                          <span class="icon-20"><i class="fas fa-retweet"></i></span>
                         </button>
+                        <strong aria-label="3 retweets" class="fs-s feed_retweet_count">3</strong>
                       </li>
-                      <li>
-                        <button>
-                          <span><i class="far fa-list-alt"></i></span>
-                          <span>Add/remove @anonymous from Lists</span>
+                      <li class="feed_item">
+                        <button aria-label="Like" class="btn-i feed_like">
+                          <span class="icon-20">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </button>
+                        <strong aria-label="3 likes" class="fs-s feed_like_count">3</strong>
                       </li>
-                      <li>
-                        <button>
-                          <span><i class="fas fa-volume-mute"></i></span>
-                          <span>Mute @anonymous</span>
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          <span><i class="fas fa-ban"></i></span>
-                          <span>Block @anonymous</span>
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          <span><i class="far fa-frown"></i></span>
-                          <span>Not interested in this Tweet</span>
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          <span><i class="fas fa-code"></i></span>
-                          <span>Embed Tweet</span>
-                        </button>
-                      </li>
-                      <li>
-                        <button>
-                          <span><i class="far fa-flag"></i></span>
-                          <span>Report Tweet</span>
+                      <li class="feed_item">
+                        <button aria-label="Share" class="btn-i feed_share">
+                          <span class="icon-20"><i class="fas fa-external-link-alt"></i></span>
                         </button>
                       </li>
                     </ul>
-                  </div>
-                </header>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex enim nemo maiores voluptate repellendus,
-                  voluptas voluptates cumque eaque quaerat et placeat iusto omnis. Odit enim expedita dolorum provident
-                  dolores sit!
-                </p>
-                <div>
-                  <img src="./assets/tweeter-1.jpg" alt="" />
+                  </footer>
                 </div>
-                <footer>
-                  <ul>
-                    <li>
-                      <button aria-label="Reply">
-                        <span><i class="far fa-comment"></i></span>
-                        <strong aria-label="3 replies">3</strong>
-                      </button>
-                    </li>
-                    <li>
-                      <button aria-label="Retweet">
-                        <span><i class="fas fa-retweet"></i></span>
-                        <strong aria-label="3 retweets">3</strong>
-                      </button>
-                    </li>
-                    <li>
-                      <button aria-label="Like">
-                        <span><i class="far fa-heart"></i></span>
-                        <strong aria-label="3 likes">3</strong>
-                      </button>
-                    </li>
-                    <li>
-                      <button aria-label="Share">
-                        <span><i class="fas fa-external-link-alt"></i></span>
-                      </button>
-                    </li>
-                  </ul>
-                </footer>
               </article>
             </li>
           </ol>
