@@ -1,51 +1,62 @@
-const btnCode = document.querySelector('#btn-code');
+import FormBtns from './form_btns.js';
 
-const grid = {
-  screen: '', // mobile, tabelt, desktop
-  breakpoint: 0, // 768, 1200
-  fixture: '', // sm, md, lg, xl
-  columns: 0, // 2, 4, 6, 12
-  gutter: 0, // 20
-  margin: 0, // fixed or 'auto'(if unit fixed)
-  unit: 0, // auto((100%-margin*2)/columns-gutter) or fixed
-  unitFixedCheck: false, // true, false
-  container: 0, // auto(100%-margin*2) or maxwidth(containerMaxwidth+margin*2)
-  containerMaxCheck: false, // true, false
-  containerMaxWidth: 0, // 960
-};
+const input = Object.freeze({
+  screen: 'screen',
+  breakpoint: 'breakpoint',
+  fixture: 'fixture',
+  columns: 'columns',
+  gutter: 'gutter',
+  margin: 'margin',
+  unit: 'unit',
+  container: 'container',
+  suffix: {
+    warning: 'warning',
+    desc: 'desc',
+    span: 'span',
+    check: 'check',
+  },
+});
+
+const formIds = ['form-1', 'form-2', 'form-3'];
+
+const formBtns = new FormBtns();
 
 class Input {
   constructor(inputId, formId, option) {
-    this.value = undefined;
-    this.validated = false;
-    this.warning = '';
-
     this.required =
       typeof option?.required === 'boolean' ? option.required : false;
     this.isNum = typeof option?.isNum === 'boolean' ? option.required : true;
 
     this.formId = formId;
-    this.form = document.querySelector(`#${this.formId}`);
     this.inputId = inputId;
-    this.input = this.form.querySelector(`#${this.inputId}`);
+    this.input = document.querySelector(`#${this.formId}-${this.inputId}`);
     this.input.addEventListener('input', () => {
       this.onInput?.();
+    });
+    this.input.addEventListener('focus', () => {
+      this.changePlaceholder('');
     });
 
     this.checkbox =
       option?.hasCheckbox === true
-        ? this.form.querySelector(`#${inputId}-check`)
+        ? document.querySelector(
+            `#${this.formId}-${inputId}-${input.suffix.check}`
+          )
         : undefined;
     this.checkbox?.addEventListener('change', () => {
       this.onChange?.();
     });
+
+    this.value = this.isNum ? (this.inputId === input.columns ? 1 : 0) : '';
+    this.validated = false;
+    this.warning = '';
   }
 
   setInputListener(onInput) {
     this.onInput = onInput;
   }
 
-  setCheckboxListener(onChange) {
+  setCheckListener(onChange) {
     this.onChange = onChange;
   }
 
@@ -54,14 +65,14 @@ class Input {
     if (this.required) {
       this.validateRequired(inputValue);
       if (!this.validated) {
-        this.value = undefined;
+        this.value = this.isNum ? (this.inputId === input.columns ? 1 : 0) : '';
         return;
       }
     }
     if (this.isNum) {
       this.validateNumber(inputValue);
       if (!this.validated) {
-        this.value = undefined;
+        this.value = this.inputId === input.columns ? 1 : 0;
         return;
       }
       inputValue = Number(inputValue);
@@ -92,7 +103,7 @@ class Input {
     } else if (numberValue < 0) {
       this.warning = 'Please enter a number greater than or equal to 0';
       this.validated = false;
-    } else if (this.input.id === 'columns' && numberValue === 0) {
+    } else if (this.inputId === input.columns && numberValue === 0) {
       this.warning = 'Please enter a number greater than 0';
       this.validated = false;
     } else {
@@ -102,31 +113,41 @@ class Input {
   }
 
   showWarning(message) {
-    const inputWarning = this.form.querySelector(`#${this.inputId}-warning`);
+    const inputWarning = document.querySelector(
+      `#${this.formId}-${this.inputId}-${input.suffix.warning}`
+    );
     this.warning = message ? message : this.warning;
     inputWarning.textContent = this.warning;
     this.input.classList.add('invalid');
   }
 
   hideWarning() {
-    const inputWarning = this.form.querySelector(`#${this.inputId}-warning`);
+    const inputWarning = document.querySelector(
+      `#${this.formId}-${this.inputId}-${input.suffix.warning}`
+    );
     this.input.classList.remove('invalid');
   }
 
   showDesc() {
-    const inputDesc = this.form.querySelector(`#${this.inputId}-desc`);
+    const inputDesc = document.querySelector(
+      `#${this.formId}-${this.inputId}-${input.suffix.desc}`
+    );
     inputDesc.classList.add('active');
   }
 
   hideDesc() {
-    const inputDesc = this.form.querySelector(`#${this.inputId}-desc`);
+    const inputDesc = document.querySelector(
+      `#${this.formId}-${this.inputId}-${input.suffix.desc}`
+    );
     inputDesc.classList.remove('active');
   }
 
   updateSpan() {
-    const inputSpan = this.form.querySelector(`#${this.inputId}-span`);
+    const inputSpan = document.querySelector(
+      `#${this.formId}-${this.inputId}-${input.suffix.span}`
+    );
     let spanValue;
-    if (inputSpan.id === 'fixture-span' || inputSpan.id === 'columns-span') {
+    if (this.inputId === input.fixture || this.inputId === input.columns) {
       spanValue = this.value ? `-${this.value}` : '';
     } else {
       spanValue = this.value ? this.value : '';
@@ -159,123 +180,184 @@ class Input {
 
   removeCheckboxDisabled() {
     this.checkbox.disabled = false;
-    // this.removeReadOnly();
   }
 }
 
-const screen = new Input('screen', 'grid-form', { isNum: false });
-const breakpoint = new Input('breakpoint', 'grid-form');
-const fixture = new Input('fixture', 'grid-form', { isNum: false });
-const columns = new Input('columns', 'grid-form', { required: true });
-const gutter = new Input('gutter', 'grid-form');
-const margin = new Input('margin', 'grid-form');
-const unit = new Input('unit', 'grid-form', { hasCheckbox: true });
-const container = new Input('container', 'grid-form', { hasCheckbox: true });
+class Form {
+  constructor(formId) {
+    this.formId = formId;
+    this.grid = {
+      form: this.formId,
+      active: this.formId === formIds[0] ? true : false,
+      screen: '', // mobile, tabelt, desktop
+      breakpoint: 0, // 768, 1200
+      fixture: '', // sm, md, lg, xl
+      columns: 0, // 2, 4, 6, 12
+      gutter: 0, // 20
+      gutterHalf: 0,
+      margin: 0, // fixed or 'auto'(if unit fixed)
+      unit: 0, // auto((100%-margin*2)/columns-gutter) or fixed
+      unitFixedCheck: false, // true, false
+      container: 0, // auto(100%-margin*2) or maxwidth(containerMaxwidth+margin*2)
+      containerMaxCheck: false, // true, false
+      containerMaxWidth: 0, // 960
+    };
 
-screen.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-});
+    this.screen = new Input(input.screen, this.formId, { isNum: false });
+    this.breakpoint = new Input(input.breakpoint, this.formId);
+    this.fixture = new Input(input.fixture, this.formId, { isNum: false });
+    this.columns = new Input(input.columns, this.formId, { required: true });
+    this.gutter = new Input(input.gutter, this.formId);
+    this.margin = new Input(input.margin, this.formId);
+    this.unit = new Input(input.unit, this.formId, { hasCheckbox: true });
+    this.container = new Input(input.container, this.formId, {
+      hasCheckbox: true,
+    });
+    this.active = document.querySelector(`#${formId}-active-check`);
+    this.active?.addEventListener('change', (event) => {
+      this.onActiveChange?.(event);
+    });
 
-breakpoint.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.showWarning();
-    this.hideDesc();
-    return;
+    this.screen.setInputListener(() => {
+      this.screen.setValue();
+      this.updateGrid();
+    });
+
+    this.breakpoint.setInputListener(() => {
+      this.breakpoint.setValue();
+      if (!this.breakpoint.validated) {
+        this.breakpoint.showWarning();
+        this.breakpoint.hideDesc();
+      } else {
+        this.breakpoint.hideWarning();
+        if (this.breakpoint.value === 0) {
+          this.breakpoint.hideDesc();
+          return;
+        }
+        this.breakpoint.updateSpan();
+        this.breakpoint.showDesc();
+      }
+      this.updateGrid();
+    });
+
+    this.fixture.setInputListener(() => {
+      this.fixture.setValue();
+      this.fixture.updateSpan();
+      this.fixture.showDesc();
+      this.updateGrid();
+    });
+
+    this.columns.setInputListener(() => {
+      this.columns.setValue();
+      if (!this.columns.validated) {
+        this.columns.showWarning();
+      } else {
+        this.columns.hideWarning();
+      }
+      this.updateGrid();
+    });
+
+    this.gutter.setInputListener(() => {
+      this.gutter.setValue();
+      if (!this.gutter.validated) {
+        this.gutter.showWarning();
+      } else {
+        this.gutter.hideWarning();
+      }
+      this.updateGrid();
+    });
+
+    this.margin.setInputListener(() => {
+      this.margin.setValue();
+      if (!this.margin.validated) {
+        this.margin.showWarning();
+      } else {
+        this.margin.hideWarning();
+      }
+      this.updateGrid();
+    });
+
+    this.unit.setCheckListener(() => {
+      if (this.unit.checkbox.checked) {
+        this.unit.removeReadOnly();
+        this.margin.addReadOnly();
+        this.container.addCheckboxDisabled();
+      } else {
+        this.unit.addReadOnly();
+        this.margin.removeReadOnly();
+        this.container.removeCheckboxDisabled();
+      }
+      this.updateGrid();
+    });
+
+    this.unit.setInputListener(() => {
+      this.unit.setValue();
+      if (!this.unit.validated) {
+        this.unit.showWarning();
+      } else {
+        this.unit.hideWarning();
+      }
+      this.updateGrid();
+    });
+
+    this.container.setCheckListener(() => {
+      if (this.container.checkbox.checked) {
+        this.container.showDesc();
+        this.container.removeReadOnly();
+        this.margin.removeReadOnly();
+        this.unit.addCheckboxDisabled();
+      } else {
+        this.container.hideDesc();
+        this.container.addReadOnly();
+        this.unit.removeCheckboxDisabled();
+      }
+      this.updateGrid();
+    });
+
+    this.container.setInputListener(() => {
+      this.container.setValue();
+      if (!this.container.validated) {
+        this.container.hideDesc();
+        this.container.showWarning();
+      } else {
+        this.container.hideWarning();
+        this.container.showDesc();
+      }
+      this.updateGrid();
+    });
   }
-  this.hideWarning();
-  if (this.value === 0) {
-    this.hideDesc();
-    return;
-  }
-  this.updateSpan();
-  this.showDesc();
-});
 
-fixture.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  this.updateSpan();
-  this.showDesc();
-});
-
-columns.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.showWarning();
-  } else {
-    this.hideWarning();
-    fixture.showDesc();
+  onActiveChange(event) {
+    this.grid.active = this.active.checked;
   }
-  this.updateSpan();
-});
 
-gutter.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.showWarning();
-  } else {
-    this.hideWarning();
-  }
-});
+  updateGrid() {
+    this.grid.screen = this.screen.value;
+    this.grid.breakpoint = this.breakpoint.value;
+    this.grid.fixture = this.fixture.value;
 
-margin.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.showWarning();
-  } else {
-    this.hideWarning();
-  }
-});
+    this.grid.columns = this.columns.value;
+    this.grid.gutter = this.gutter.value;
+    this.grid.gutterHalf = this.gutter.value / 2;
 
-unit.setCheckboxListener(function () {
-  if (this.checkbox.checked) {
-    this.removeReadOnly();
-    margin.addReadOnly();
-    container.addCheckboxDisabled();
-  } else {
-    this.addReadOnly();
-    margin.removeReadOnly();
-    container.removeCheckboxDisabled();
-  }
-});
+    this.grid.unitFixedCheck = this.unit.checkbox.checked;
+    this.grid.containerMaxCheck = this.container.checkbox.checked;
 
-unit.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.showWarning();
-  } else {
-    this.hideWarning();
+    if (!this.grid.unitFixedCheck && !this.grid.containerMaxCheck) {
+      this.grid.margin = this.margin.value;
+      this.grid.container = 0;
+      this.grid.containerMaxWidth = this.grid.container;
+    } else if (this.grid.unitFixedCheck) {
+      this.grid.margin = 0;
+      this.grid.unit = this.unit.value;
+      this.grid.container =
+        (this.grid.unit + this.grid.gutter) * this.grid.columns;
+      this.grid.containerMaxWidth = this.grid.container;
+    } else if (this.grid.containerMaxCheck) {
+      this.grid.margin = this.margin.value;
+      this.grid.unit = 0;
+      this.grid.container = this.container.value;
+      this.grid.containerMaxWidth = this.grid.container + this.grid.margin * 2;
+    }
   }
-});
-
-container.setCheckboxListener(function () {
-  if (this.checkbox.checked) {
-    this.showDesc();
-    this.removeReadOnly();
-    margin.removeReadOnly();
-    unit.addCheckboxDisabled();
-  } else {
-    this.hideDesc();
-    this.addReadOnly();
-    unit.removeCheckboxDisabled();
-  }
-});
-
-container.setInputListener(function () {
-  this.setValue();
-  this.changePlaceholder('');
-  if (!this.validated) {
-    this.hideDesc();
-    this.showWarning();
-  } else {
-    this.hideWarning();
-    this.showDesc();
-  }
-});
+}
