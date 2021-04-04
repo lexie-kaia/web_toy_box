@@ -7,7 +7,7 @@
     <title>Grid Generator</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../reset.css" />
@@ -23,9 +23,439 @@
     <div class="main">
       <header class="header">
         <h1>Grid Generator</h1>
-        <p>Bootstrapy-grid-system stylesheet generator</p>
+        <p>Bootstrapy grid system stylesheet generator</p>
       </header>
+
       <div class="grid-generator">
+        <section class="form-section">
+          <div class="form-list js-form-list" data-show="show-1">
+            <div class="form-item" id="form-1">
+              <ul class="input-list">
+                <li class="input-item">
+                  <label for="form-1-screen" class="input-label">Screen</label>
+                  <input type="text" id="form-1-screen" placeholder="mobile" />
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-breakpoint">Breakpoint</label>
+                  <input
+                    type="text"
+                    id="form-1-breakpoint"
+                    class="input-px"
+                    placeholder="0"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-1-breakpoint-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-desc" id="form-1-breakpoint-desc">
+                    @media screen and (min-width:
+                    <span id="form-1-breakpoint-span">0</span>px)
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-fixture">Column selector fixture</label>
+                  <input type="text" id="form-1-fixture" placeholder="sm" />
+                  <span class="input-desc" id="form-1-fixture-desc"
+                    >.col<span id="form-1-fixture-span">-sm</span>-1
+                  </span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-columns">Number of columns</label>
+                  <input
+                    type="text"
+                    id="form-1-columns"
+                    placeholder="4"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-1-columns-warning"
+                  ></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-gutter">Gutter</label>
+                  <input
+                    type="text"
+                    id="form-1-gutter"
+                    class="input-px"
+                    placeholder="20"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-1-gutter-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-margin">Margin</label>
+                  <input
+                    type="text"
+                    id="form-1-margin"
+                    class="input-px"
+                    placeholder="5"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-1-margin-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-unit">Unit</label>
+                  <input
+                    type="text"
+                    id="form-1-unit"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span class="input-warning" id="form-1-unit-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-1-unit-check">Fix unit size</label>
+                    <input type="checkbox" id="form-1-unit-check" />
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-1-container">Container</label>
+                  <input
+                    type="text"
+                    id="form-1-container"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-1-container-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <span class="input-desc" id="form-1-container-desc"
+                    >*Please enter a value without margins</span
+                  >
+                  <div class="input-option">
+                    <label for="form-1-container-check"
+                      >Set container max-width</label
+                    >
+                    <input type="checkbox" id="form-1-container-check" />
+                  </div>
+                </li>
+              </ul>
+              <div class="form-btns">
+                <button type="button" class="btn-round-44 js-btn-view-code">
+                  <i class="fas fa-chevron-down"></i>
+                  <span>View CSS Code</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-item" id="form-2">
+              <ul class="input-list">
+                <li class="input-item">
+                  <label for="form-2-screen" class="input-label">Screen</label>
+                  <input
+                    type="text"
+                    id="form-2-screen"
+                    placeholder="mobile"
+                    disabled
+                  />
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-breakpoint">Breakpoint</label>
+                  <input
+                    type="text"
+                    id="form-2-breakpoint"
+                    class="input-px"
+                    placeholder="0"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-2-breakpoint-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-desc" id="form-2-breakpoint-desc">
+                    @media screen and (min-width:
+                    <span id="form-2-breakpoint-span">0</span>px)
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-fixture">Column selector fixture</label>
+                  <input type="text" id="form-2-fixture" placeholder="sm" />
+                  <span class="input-desc" id="form-2-fixture-desc"
+                    >.col<span id="form-2-fixture-span">-sm</span>-1
+                  </span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-columns">Number of columns</label>
+                  <input
+                    type="text"
+                    id="form-2-columns"
+                    placeholder="4"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-2-columns-warning"
+                  ></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-gutter">Gutter</label>
+                  <input
+                    type="text"
+                    id="form-2-gutter"
+                    class="input-px"
+                    placeholder="20"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-2-gutter-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-margin">Margin</label>
+                  <input
+                    type="text"
+                    id="form-2-margin"
+                    class="input-px"
+                    placeholder="5"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-2-margin-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-unit">Unit</label>
+                  <input
+                    type="text"
+                    id="form-2-unit"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span class="input-warning" id="form-2-unit-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-2-unit-check">Fix unit size</label>
+                    <input type="checkbox" id="form-2-unit-check" />
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-2-container">Container</label>
+                  <input
+                    type="text"
+                    id="form-2-container"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-2-container-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <span class="input-desc" id="form-2-container-desc"
+                    >*Please enter a value without margins</span
+                  >
+                  <div class="input-option">
+                    <label for="form-2-container-check"
+                      >Set container max-width</label
+                    >
+                    <input type="checkbox" id="form-2-container-check" />
+                  </div>
+                </li>
+
+                <li class="input-hidden" aria-hidden>
+                  <input type="checkbox" id="form-2-active-check" />
+                </li>
+              </ul>
+
+              <div class="form-btns">
+                <button
+                  type="button"
+                  class="btn-round-44 js-btn-remove-bp"
+                  data-form="form-2"
+                >
+                  <i class="fas fa-minus"></i>
+                  <span>Remove this breakpoint</span>
+                </button>
+              </div>
+
+              <div class="form-cover">
+                <button
+                  type="button"
+                  class="btn-round-44 js-btn-add-bp"
+                  data-form="form-2"
+                >
+                  <i class="fas fa-plus"></i>
+                  <span> Add a breakpoint</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-item" id="form-3">
+              <ul class="input-list">
+                <li class="input-item">
+                  <label for="form-3-screen" class="input-label">Screen</label>
+                  <input type="text" id="form-3-screen" placeholder="mobile" />
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-breakpoint">Breakpoint</label>
+                  <input
+                    type="text"
+                    id="form-3-breakpoint"
+                    class="input-px"
+                    placeholder="0"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-3-breakpoint-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-desc" id="form-3-breakpoint-desc">
+                    @media screen and (min-width:
+                    <span id="form-3-breakpoint-span">0</span>px)
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-fixture">Column selector fixture</label>
+                  <input type="text" id="form-3-fixture" placeholder="sm" />
+                  <span class="input-desc" id="form-3-fixture-desc"
+                    >.col<span id="form-3-fixture-span">-sm</span>-1
+                  </span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-columns">Number of columns</label>
+                  <input
+                    type="text"
+                    id="form-3-columns"
+                    placeholder="4"
+                    pattern="\d*"
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-3-columns-warning"
+                  ></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-gutter">Gutter</label>
+                  <input
+                    type="text"
+                    id="form-3-gutter"
+                    class="input-px"
+                    placeholder="20"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-3-gutter-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-margin">Margin</label>
+                  <input
+                    type="text"
+                    id="form-3-margin"
+                    class="input-px"
+                    placeholder="5"
+                    pattern="\d*"
+                  />
+                  <span class="input-warning" id="form-3-margin-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-unit">Unit</label>
+                  <input
+                    type="text"
+                    id="form-3-unit"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span class="input-warning" id="form-3-unit-warning"></span>
+                  <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="unit-check">Fix unit size</label>
+                    <input type="checkbox" id="form-3-unit-check" />
+                  </div>
+                </li>
+
+                <li class="input-item">
+                  <label for="form-3-container">Container</label>
+                  <input
+                    type="text"
+                    id="form-3-container"
+                    class="input-px"
+                    placeholder="auto"
+                    pattern="\d*"
+                    readonly
+                  />
+                  <span
+                    class="input-warning"
+                    id="form-3-container-warning"
+                  ></span>
+                  <span class="i-px" aria-hidden></span>
+                  <span class="input-desc" id="form-3-container-desc"
+                    >*Please enter a value without margins</span
+                  >
+                  <div class="input-option">
+                    <label for="form-3-container-check"
+                      >Set container max-width</label
+                    >
+                    <input type="checkbox" id="form-3-container-check" />
+                  </div>
+                </li>
+              </ul>
+
+              <div class="form-btns">
+                <button
+                  type="button"
+                  class="btn-round-44 js-btn-remove-bp"
+                  data-form="form-3"
+                >
+                  <i class="fas fa-minus"></i>
+                  <span>Remove this breakpoint</span>
+                </button>
+              </div>
+
+              <div class="form-cover">
+                <button class="btn-round-44 js-btn-add-bp" data-form="form-3">
+                  <i class="fas fa-plus"></i>
+                  <span> Add a breakpoint</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-ghost left js-btn-swipe-left hide">
+            <i class="fas fa-angle-left"></i>
+          </button>
+          <button type="button" class="btn-ghost right js-btn-swipe-right">
+            <i class="fas fa-angle-right"></i>
+          </button>
+        </section>
+
         <section class="code-simulator">
           <div class="code" id="code">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
@@ -33,327 +463,10 @@
             quos totam libero, quo aut! Pariatur quam exercitationem amet nisi
             doloremque atque alias.
           </div>
-          <button type="button">
+          <button type="button" class="btn-round icon">
             <i class="fas fa-arrow-circle-down"></i>
             <span>View Simulator</span>
           </button>
-        </section>
-        <section class="form-group">
-          <div class="form" id="form-1">
-            <div class="input-group">
-              <label for="screen" class="input-label">Screen</label>
-              <input type="text" id="screen" placeholder="mobile" />
-            </div>
-
-            <div class="input-group">
-              <label for="breakpoint">Breakpoint</label>
-              <input
-                type="text"
-                id="breakpoint"
-                class="input-px"
-                placeholder="0"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="breakpoint-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-desc" id="breakpoint-desc">
-                @media screen and (min-width:
-                <span id="breakpoint-span">0</span>px)
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="fixture">Column selector fixture</label>
-              <input type="text" id="fixture" placeholder="sm" />
-              <span class="input-desc" id="fixture-desc"
-                >.col<span id="fixture-span">-sm</span>-1
-              </span>
-            </div>
-
-            <div class="input-group">
-              <label for="columns">Number of columns</label>
-              <input type="text" id="columns" placeholder="4" pattern="\d*" />
-              <span class="input-warning" id="columns-warning"></span>
-            </div>
-
-            <div class="input-group">
-              <label for="gutter">Gutter</label>
-              <input
-                type="text"
-                id="gutter"
-                class="input-px"
-                placeholder="20"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="gutter-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="margin">Margin</label>
-              <input
-                type="text"
-                id="margin"
-                class="input-px"
-                placeholder="5"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="margin-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="unit">Unit</label>
-              <input
-                type="text"
-                id="unit"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="unit-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-option">
-                <label for="unit-check">Fix unit size</label>
-                <input type="checkbox" id="unit-check" />
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="container">Container</label>
-              <input
-                type="text"
-                id="container"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="container-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <span class="input-desc" id="container-desc"
-                >*Please enter a value without margins</span
-              >
-              <div class="input-option">
-                <label for="container-check">Set container max-width</label>
-                <input type="checkbox" id="container-check" />
-              </div>
-            </div>
-          </div>
-          <div class="form" id="form-2">
-            <div class="input-group">
-              <label for="screen" class="input-label">Screen</label>
-              <input type="text" id="screen" placeholder="mobile" />
-            </div>
-
-            <div class="input-group">
-              <label for="breakpoint">Breakpoint</label>
-              <input
-                type="text"
-                id="breakpoint"
-                class="input-px"
-                placeholder="0"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="breakpoint-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-desc" id="breakpoint-desc">
-                @media screen and (min-width:
-                <span id="breakpoint-span">0</span>px)
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="fixture">Column selector fixture</label>
-              <input type="text" id="fixture" placeholder="sm" />
-              <span class="input-desc" id="fixture-desc"
-                >.col<span id="fixture-span">-sm</span>-1
-              </span>
-            </div>
-
-            <div class="input-group">
-              <label for="columns">Number of columns</label>
-              <input type="text" id="columns" placeholder="4" pattern="\d*" />
-              <span class="input-warning" id="columns-warning"></span>
-            </div>
-
-            <div class="input-group">
-              <label for="gutter">Gutter</label>
-              <input
-                type="text"
-                id="gutter"
-                class="input-px"
-                placeholder="20"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="gutter-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="margin">Margin</label>
-              <input
-                type="text"
-                id="margin"
-                class="input-px"
-                placeholder="5"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="margin-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="unit">Unit</label>
-              <input
-                type="text"
-                id="unit"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="unit-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-option">
-                <label for="unit-check">Fix unit size</label>
-                <input type="checkbox" id="unit-check" />
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="container">Container</label>
-              <input
-                type="text"
-                id="container"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="container-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <span class="input-desc" id="container-desc"
-                >*Please enter a value without margins</span
-              >
-              <div class="input-option">
-                <label for="container-check">Set container max-width</label>
-                <input type="checkbox" id="container-check" />
-              </div>
-            </div>
-            <div class="form-cover">
-              <i class="fas fa-plus-circle"></i>
-              <span> Add Breakpoint</span>
-            </div>
-          </div>
-
-          <div class="form" id="form-3">
-            <div class="input-group">
-              <label for="screen" class="input-label">Screen</label>
-              <input type="text" id="screen" placeholder="mobile" />
-            </div>
-
-            <div class="input-group">
-              <label for="breakpoint">Breakpoint</label>
-              <input
-                type="text"
-                id="breakpoint"
-                class="input-px"
-                placeholder="0"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="breakpoint-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-desc" id="breakpoint-desc">
-                @media screen and (min-width:
-                <span id="breakpoint-span">0</span>px)
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="fixture">Column selector fixture</label>
-              <input type="text" id="fixture" placeholder="sm" />
-              <span class="input-desc" id="fixture-desc"
-                >.col<span id="fixture-span">-sm</span>-1
-              </span>
-            </div>
-
-            <div class="input-group">
-              <label for="columns">Number of columns</label>
-              <input type="text" id="columns" placeholder="4" pattern="\d*" />
-              <span class="input-warning" id="columns-warning"></span>
-            </div>
-
-            <div class="input-group">
-              <label for="gutter">Gutter</label>
-              <input
-                type="text"
-                id="gutter"
-                class="input-px"
-                placeholder="20"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="gutter-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="margin">Margin</label>
-              <input
-                type="text"
-                id="margin"
-                class="input-px"
-                placeholder="5"
-                pattern="\d*"
-              />
-              <span class="input-warning" id="margin-warning"></span>
-              <span class="i-px" aria-hidden></span>
-            </div>
-
-            <div class="input-group">
-              <label for="unit">Unit</label>
-              <input
-                type="text"
-                id="unit"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="unit-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <div class="input-option">
-                <label for="unit-check">Fix unit size</label>
-                <input type="checkbox" id="unit-check" />
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label for="container">Container</label>
-              <input
-                type="text"
-                id="container"
-                class="input-px"
-                placeholder="auto"
-                pattern="\d*"
-                readonly
-              />
-              <span class="input-warning" id="container-warning"></span>
-              <span class="i-px" aria-hidden></span>
-              <span class="input-desc" id="container-desc"
-                >*Please enter a value without margins</span
-              >
-              <div class="input-option">
-                <label for="container-check">Set container max-width</label>
-                <input type="checkbox" id="container-check" />
-              </div>
-            </div>
-            <div class="form-cover">
-              <i class="fas fa-plus-circle"></i>
-              <span> Add Breakpoint</span>
-            </div>
-          </div>
         </section>
       </div>
     </div>
