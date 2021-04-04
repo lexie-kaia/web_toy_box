@@ -1,0 +1,13 @@
+{
+  "name": "web_toy_box",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "https://github.com/lexie-kaia/web_toy_box.git",
+  "author": "lexie-kaia <kaia.gayeon.kim@gmail.com>",
+  "scripts": {
+    "sass:reset": "sass --watch projects/reset_css/reset.scss reset.css "
+  },
+  "dependencies": {
+    "sass": "^1.32.8"
+  }
+}
