@@ -25,7 +25,9 @@ class Btns {
     this.btnAddBpList = document.querySelectorAll('.js-btn-add-bp');
     this.btnRemoveBpList = document.querySelectorAll('.js-btn-remove-bp');
     this.btnViewCode = document.querySelector('.js-btn-view-code');
+    this.btnViewForm = document.querySelector('.js-btn-view-form');
     this.btnViewGrid = document.querySelector('.js-btn-view-grid');
+    this.btnUp = document.querySelector('.js-btn-up');
 
     this.btnSwipeLeft.addEventListener('click', () => {
       this.onLeftClick();
@@ -46,8 +48,14 @@ class Btns {
     this.btnViewCode.addEventListener('click', () => {
       this.onViewCodeClick();
     });
+    this.btnViewForm.addEventListener('click', () => {
+      this.onViewFormClick();
+    });
     this.btnViewGrid.addEventListener('click', () => {
       this.onViewGridClick();
+    });
+    this.btnUp.addEventListener('click', () => {
+      this.onUpClick();
     });
   }
 
@@ -97,9 +105,22 @@ class Btns {
     codeSection.scrollIntoView({ behavior: 'smooth' });
   }
 
+  onViewFormClick() {
+    const formSection = document.querySelector('.form-section');
+    formSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
   onViewGridClick() {
     const gridSimulator = document.querySelector('.grid-simulator');
     gridSimulator.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  onUpClick() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 
   showElem(elem) {
@@ -500,7 +521,7 @@ class Form {
   onGutterDefaultCheck() {
     if (this.gutterDefaultCheck.checked) {
       let defaultGutter = document.querySelector('#form-1-gutter').value;
-      if (isNaN(defaultGutter)) {
+      if (defaultGutter === '' || isNaN(defaultGutter)) {
         this.gutterDefaultCheck.checked = false;
         return;
       }
@@ -516,7 +537,7 @@ class Form {
   onMarginDefaultCheck() {
     if (this.marginDefaultCheck.checked) {
       let defaultMargin = document.querySelector('#form-1-margin').value;
-      if (isNaN(defaultMargin)) {
+      if (defaultMargin === '' || isNaN(defaultMargin)) {
         this.marginDefaultCheck.checked = false;
         return;
       }

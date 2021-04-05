@@ -407,7 +407,7 @@ span {
 
 .code-scroller {
   overflow-y: scroll;
-  padding: 36px 24px 92px;
+  padding: 36px 24px 168px;
   height: 100%;
 }
 
@@ -418,9 +418,17 @@ span {
 
 .code-simulator .btn-round-44 {
   position: absolute;
-  bottom: 48px;
   left: 50%;
   transform: translateX(-50%);
+  text-align: left;
+}
+
+.code-simulator .btn-round-44.up {
+  bottom: 108px;
+}
+
+.code-simulator .btn-round-44.down {
+  bottom: 48px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -460,6 +468,34 @@ span {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.btn-round {
+  position: absolute;
+  z-index: 1;
+  bottom: 56px;
+  right: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--grey-b);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 24px;
+  transition: background 100ms;
+}
+
+.btn-round:hover,
+.btn-round:focus,
+.btn-round:active {
+  background: var(--grey-9);
+}
+
+.btn-round i {
+  color: inherit;
 }
 
 .grid-background {
