@@ -1,5 +1,3 @@
-import FormBtns from './form_btns.js';
-
 const input = Object.freeze({
   screen: 'screen',
   breakpoint: 'breakpoint',
@@ -19,7 +17,143 @@ const input = Object.freeze({
 
 const formIds = ['form-1', 'form-2', 'form-3'];
 
-const formBtns = new FormBtns();
+class Btns {
+  constructor() {
+    this.formList = document.querySelector('.js-form-list');
+    this.btnSwipeLeft = document.querySelector('.js-btn-swipe-left');
+    this.btnSwipeRight = document.querySelector('.js-btn-swipe-right');
+    this.btnAddBpList = document.querySelectorAll('.js-btn-add-bp');
+    this.btnRemoveBpList = document.querySelectorAll('.js-btn-remove-bp');
+    this.btnViewCode = document.querySelector('.js-btn-view-code');
+    this.btnViewGrid = document.querySelector('.js-btn-view-grid');
+
+    this.btnSwipeLeft.addEventListener('click', () => {
+      this.onLeftClick();
+    });
+    this.btnSwipeRight.addEventListener('click', () => {
+      this.onRightClick();
+    });
+    this.btnAddBpList.forEach((btnAddBp) => {
+      btnAddBp.addEventListener('click', (event) => {
+        this.onAddBpClick(event);
+      });
+    });
+    this.btnRemoveBpList.forEach((btnRemoveBp) => {
+      btnRemoveBp.addEventListener('click', (event) => {
+        this.onRemoveBpClick(event);
+      });
+    });
+    this.btnViewCode.addEventListener('click', () => {
+      this.onViewCodeClick();
+    });
+    this.btnViewGrid.addEventListener('click', () => {
+      this.onViewGridClick();
+    });
+  }
+
+  onLeftClick() {
+    let showNumber = this.getDatasetSuffixNumber(this.formList, 'show');
+    if (showNumber !== 2 && showNumber !== 3) return;
+    if (showNumber === 3) {
+      this.showElem(this.btnSwipeRight);
+    } else if (showNumber === 2) {
+      this.hideElem(this.btnSwipeLeft);
+    }
+    showNumber -= 1;
+    this.createDatasetWithSuffixNumber(this.formList, 'show', showNumber);
+  }
+
+  onRightClick() {
+    let showNumber = this.getDatasetSuffixNumber(this.formList, 'show');
+    if (showNumber !== 1 && showNumber !== 2) return;
+    if (showNumber === 1) {
+      this.showElem(this.btnSwipeLeft);
+    } else if (showNumber === 2) {
+      this.hideElem(this.btnSwipeRight);
+    }
+    showNumber += 1;
+    this.createDatasetWithSuffixNumber(this.formList, 'show', showNumber);
+  }
+
+  onAddBpClick(event) {
+    const btn = event.currentTarget;
+    const cover = btn.parentNode;
+    const formNumber = this.getDatasetSuffixNumber(btn, 'form');
+    this.hideElem(cover);
+    this.activateForm(formNumber);
+  }
+
+  onRemoveBpClick(event) {
+    const btn = event.currentTarget;
+    const formNumber = this.getDatasetSuffixNumber(btn, 'form');
+    const cover = document.querySelector(`#form-${formNumber} .form-cover`);
+
+    this.showElem(cover);
+    this.deactivateForm(formNumber);
+  }
+
+  onViewCodeClick() {
+    const codeSection = document.querySelector('.code-simulator');
+    codeSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  onViewGridClick() {
+    const gridSimulator = document.querySelector('.grid-simulator');
+    gridSimulator.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  showElem(elem) {
+    elem.classList.remove('hide');
+  }
+
+  hideElem(elem) {
+    elem.classList.add('hide');
+  }
+
+  getDatasetSuffixNumber(target, datasetName) {
+    const data = target.getAttribute(`data-${datasetName}`);
+    const dataSplit = data.split('-');
+    const dataNumber = Number(dataSplit[1]);
+    return dataNumber;
+  }
+
+  createDatasetWithSuffixNumber(target, datasetName, number) {
+    const dataset = `${datasetName}-${number}`;
+    target.setAttribute(`data-${datasetName}`, dataset);
+  }
+
+  activateForm(formNumber) {
+    const btnRemoveBp = document.querySelector(
+      `#form-${formNumber} .js-btn-remove-bp`
+    );
+    this.showElem(btnRemoveBp);
+
+    const inputList = document.querySelectorAll(`#form-${formNumber} input`);
+    inputList.forEach((input) => {
+      input.disabled = false;
+    });
+
+    const inputActive = document.querySelector(
+      `#form-${formNumber}-active-check`
+    );
+    inputActive.click();
+  }
+
+  deactivateForm(formNumber) {
+    const inputActive = document.querySelector(
+      `#form-${formNumber}-active-check`
+    );
+    inputActive.click();
+    const btnRemoveBp = document.querySelector(
+      `#form-${formNumber} .js-btn-remove-bp`
+    );
+    this.hideElem(btnRemoveBp);
+    const inputList = document.querySelectorAll(`#form-${formNumber} input`);
+    inputList.forEach((input) => {
+      input.disabled = true;
+    });
+  }
+}
 
 class Input {
   constructor(inputId, formId, option) {
@@ -159,23 +293,25 @@ class Input {
     this.input.placeholder = content;
   }
 
-  addReadOnly() {
+  addDisabled() {
     this.input.readOnly = true;
     this.value = undefined;
     this.validated = false;
     this.input.value = '';
     this.input.placeholder = 'auto';
+    this.input.disabled = true;
   }
 
-  removeReadOnly() {
+  removeDisabled() {
     this.input.readOnly = false;
     this.input.placeholder = '';
+    this.input.disabled = false;
   }
 
   addCheckboxDisabled() {
     this.checkbox.checked = false;
     this.checkbox.disabled = true;
-    this.addReadOnly();
+    this.addDisabled();
   }
 
   removeCheckboxDisabled() {
@@ -194,7 +330,6 @@ class Form {
       fixture: '', // sm, md, lg, xl
       columns: 0, // 2, 4, 6, 12
       gutter: 0, // 20
-      gutterHalf: 0,
       margin: 0, // fixed or 'auto'(if unit fixed)
       unit: 0, // auto((100%-margin*2)/columns-gutter) or fixed
       unitFixedCheck: false, // true, false
@@ -213,14 +348,31 @@ class Form {
     this.container = new Input(input.container, this.formId, {
       hasCheckbox: true,
     });
-    this.active = document.querySelector(`#${formId}-active-check`);
-    this.active?.addEventListener('change', (event) => {
-      this.onActiveChange?.(event);
-    });
+
+    if (this.formId !== formIds[0]) {
+      this.active = document.querySelector(`#${formId}-active-check`);
+      this.gutterDefaultCheck = document.querySelector(
+        `#${this.formId}-gutter-default-check`
+      );
+      this.marginDefaultCheck = document.querySelector(
+        `#${this.formId}-margin-default-check`
+      );
+
+      this.active.addEventListener('change', () => {
+        this.onActiveChange();
+      });
+      this.gutterDefaultCheck.addEventListener('change', () => {
+        this.onGutterDefaultCheck();
+      });
+      this.marginDefaultCheck.addEventListener('change', () => {
+        this.onMarginDefaultCheck();
+      });
+    }
 
     this.screen.setInputListener(() => {
       this.screen.setValue();
       this.updateGrid();
+      this.updateCode();
     });
 
     this.breakpoint.setInputListener(() => {
@@ -238,6 +390,7 @@ class Form {
         this.breakpoint.showDesc();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.fixture.setInputListener(() => {
@@ -245,6 +398,7 @@ class Form {
       this.fixture.updateSpan();
       this.fixture.showDesc();
       this.updateGrid();
+      this.updateCode();
     });
 
     this.columns.setInputListener(() => {
@@ -255,6 +409,7 @@ class Form {
         this.columns.hideWarning();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.gutter.setInputListener(() => {
@@ -265,6 +420,7 @@ class Form {
         this.gutter.hideWarning();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.margin.setInputListener(() => {
@@ -275,19 +431,25 @@ class Form {
         this.margin.hideWarning();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.unit.setCheckListener(() => {
       if (this.unit.checkbox.checked) {
-        this.unit.removeReadOnly();
-        this.margin.addReadOnly();
+        this.unit.removeDisabled();
+        this.margin.addDisabled();
         this.container.addCheckboxDisabled();
+        if (this.formId !== formIds[0]) {
+          this.marginDefaultCheck.checked = false;
+        }
       } else {
-        this.unit.addReadOnly();
-        this.margin.removeReadOnly();
+        this.unit.addDisabled();
+        this.margin.removeDisabled();
         this.container.removeCheckboxDisabled();
       }
       this.updateGrid();
+      this.updateCode();
+      console.log(this.grid);
     });
 
     this.unit.setInputListener(() => {
@@ -298,20 +460,22 @@ class Form {
         this.unit.hideWarning();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.container.setCheckListener(() => {
       if (this.container.checkbox.checked) {
         this.container.showDesc();
-        this.container.removeReadOnly();
-        this.margin.removeReadOnly();
+        this.container.removeDisabled();
+        this.margin.removeDisabled();
         this.unit.addCheckboxDisabled();
       } else {
         this.container.hideDesc();
-        this.container.addReadOnly();
+        this.container.addDisabled();
         this.unit.removeCheckboxDisabled();
       }
       this.updateGrid();
+      this.updateCode();
     });
 
     this.container.setInputListener(() => {
@@ -324,21 +488,55 @@ class Form {
         this.container.showDesc();
       }
       this.updateGrid();
+      this.updateCode();
     });
   }
 
-  onActiveChange(event) {
+  onActiveChange() {
     this.grid.active = this.active.checked;
+    this.updateCode();
+  }
+
+  onGutterDefaultCheck() {
+    if (this.gutterDefaultCheck.checked) {
+      let defaultGutter = document.querySelector('#form-1-gutter').value;
+      if (isNaN(defaultGutter)) {
+        this.gutterDefaultCheck.checked = false;
+        return;
+      }
+      defaultGutter = Number(defaultGutter);
+      this.gutter.input.value = defaultGutter;
+      this.grid.gutter = defaultGutter;
+      this.gutter.input.addEventListener('change', () => {
+        this.gutterDefaultCheck.checked = false;
+      });
+    }
+  }
+
+  onMarginDefaultCheck() {
+    if (this.marginDefaultCheck.checked) {
+      let defaultMargin = document.querySelector('#form-1-margin').value;
+      if (isNaN(defaultMargin)) {
+        this.marginDefaultCheck.checked = false;
+        return;
+      }
+      defaultMargin = Number(defaultMargin);
+      this.margin.input.value = defaultMargin;
+      this.grid.margin = defaultMargin;
+      console.log(this.grid);
+      this.gutter.input.addEventListener('change', () => {
+        this.marginDefaultCheck.checked = false;
+      });
+    }
   }
 
   updateGrid() {
     this.grid.screen = this.screen.value;
     this.grid.breakpoint = this.breakpoint.value;
-    this.grid.fixture = this.fixture.value;
+    this.grid.fixture = this.fixture.value ? `-${this.fixture.value}` : '';
 
     this.grid.columns = this.columns.value;
     this.grid.gutter = this.gutter.value;
-    this.grid.gutterHalf = this.gutter.value / 2;
 
     this.grid.unitFixedCheck = this.unit.checkbox.checked;
     this.grid.containerMaxCheck = this.container.checkbox.checked;
@@ -360,4 +558,185 @@ class Form {
       this.grid.containerMaxWidth = this.grid.container + this.grid.margin * 2;
     }
   }
+
+  linkUpdateCode(updateCode) {
+    this.updateCode = updateCode;
+  }
 }
+
+class Generator {
+  constructor() {
+    this.code = document.querySelector('#code');
+    this.btnGenerateGrid = document.querySelector('.js-btn-generate-grid');
+    this.form1 = new Form(formIds[0]);
+    this.form2 = new Form(formIds[1]);
+    this.form3 = new Form(formIds[2]);
+
+    this.form1.linkUpdateCode(() => {
+      this.updateCode();
+    });
+    this.form2.linkUpdateCode(() => {
+      this.updateCode();
+    });
+    this.form3.linkUpdateCode(() => {
+      this.updateCode();
+    });
+    this.btnGenerateGrid.addEventListener('click', () => {
+      this.onGenerateGridClick();
+    });
+  }
+
+  onGenerateGridClick() {
+    this.changeBtnContent();
+    this.generateHTMLColumns();
+    this.injectCodeOnCSS();
+  }
+
+  changeBtnContent() {
+    this.btnGenerateGrid.textContent = 'Refresh grid simulator';
+  }
+
+  generateHTMLColumns() {
+    const gridRow = document.querySelector('.js-row');
+
+    const colsList = [
+      this.form1.grid.columns,
+      this.form2.grid.columns,
+      this.form3.grid.columns,
+    ];
+    const colMax = Math.max(...colsList);
+
+    const colSel = {
+      form1: `col${this.form1.grid.fixture}-1`,
+      form2: this.form2.grid.active ? ` col${this.form2.grid.fixture}-1` : '',
+      form3: this.form3.grid.active ? ` col${this.form3.grid.fixture}-1` : '',
+    };
+
+    let colElems = '';
+    for (let i = 0; i < colMax; i++) {
+      const colElem = `
+        <div class="col ${colSel.form1}${colSel.form2}${colSel.form3}">
+          <div class="box"></div>
+        </div>
+      `;
+      colElems += colElem;
+    }
+
+    gridRow.innerHTML = colElems;
+  }
+
+  injectCodeOnCSS() {
+    const codeCSS = this.generateCSS();
+    const codeWrapper = `@media screen and (min-width:0) {${codeCSS}}`;
+    const styleSheet = document.styleSheets[3];
+    if (styleSheet.cssRules.length === 1) {
+      styleSheet.deleteRule(0);
+    }
+    styleSheet.insertRule(codeWrapper);
+  }
+
+  updateCode() {
+    const codeHTML = this.formatCSStoHTML();
+    this.code.innerHTML = codeHTML;
+  }
+
+  formatCSStoHTML() {
+    const codeCSS = this.generateCSS();
+
+    const codeHTML = codeCSS
+      .replace(/\*\//g, '*/<br/><br/>')
+      .replace(/;/g, ';<br/>&nbsp;&nbsp;')
+      .replace(/{/g, '{<br/>&nbsp;&nbsp;')
+      .replace(/;<br\/>&nbsp;&nbsp;\s}/g, ';<br/>}<br/><br/>')
+      .replace(/\)\s{<br\/>&nbsp;&nbsp;\s/g, ') {<br/>')
+      .replace(/}[/s]*@/g, '}<br/><br/>@')
+      .replace(/}<br\/><br\/>\s}/g, '}<br/>}');
+
+    return codeHTML;
+  }
+
+  generateCSS() {
+    const defaultCSS = `
+    .container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .container .row {
+      display: flex;
+      flex-wrap: wrap;
+    }`;
+    const form1CSS = this.convertFormToCSS(this.form1);
+    const form2CSS = this.form2.grid.active
+      ? this.convertFormToCSS(this.form2)
+      : '';
+    const form3CSS = this.form3.grid.active
+      ? this.convertFormToCSS(this.form3)
+      : '';
+    let codeCSS = defaultCSS + form1CSS + form2CSS + form3CSS;
+
+    codeCSS = codeCSS.replace(/\s+/g, ' ');
+
+    return codeCSS;
+  }
+
+  convertFormToCSS(form) {
+    const {
+      screen: scr,
+      breakpoint,
+      fixture: fx,
+      columns: cols,
+      gutter: gt,
+      margin: mg,
+      unit: un,
+      unitFixedCheck,
+      containerMaxCheck,
+      containerMaxWidth: ct,
+    } = form.grid;
+
+    const ctPadding = mg !== 0 ? `padding: 0 ${mg}px;` : `padding: 0;`;
+    const ctMaxWidth =
+      unitFixedCheck || containerMaxCheck
+        ? `max-width: ${ct}px;`
+        : 'max-width: 100%;';
+
+    const colsPadding = gt !== 0 ? `padding: 0 ${gt / 2}px;` : `padding: 0;`;
+
+    const scrCSS = scr ? `/* --- screen : ${scr} --- */` : '';
+
+    const ctCSS = `.container {
+      ${ctMaxWidth}
+      ${ctPadding}
+    }`;
+
+    const colsCSS = `.container .row [class*='col-'] {
+      ${colsPadding}
+    }`;
+
+    let colUnitCSS = '';
+
+    for (let i = 0; i < cols; i++) {
+      const colWidth = unitFixedCheck
+        ? `width: ${(un + gt) * (i + 1)}px;`
+        : `width: calc(100% / ${cols - i});`;
+      const col = `.container .row .col${fx}-${i + 1} {
+        ${colWidth}
+      }`;
+      colUnitCSS += col;
+    }
+
+    let codeCSS = scrCSS + ctCSS + colsCSS + colUnitCSS;
+
+    if (breakpoint) {
+      codeCSS = `@media screen and (min-width: ${breakpoint}px) {
+        ${codeCSS}
+      }`;
+    }
+
+    codeCSS = codeCSS;
+
+    return codeCSS;
+  }
+}
+
+const btns = new Btns();
+const generator = new Generator();
