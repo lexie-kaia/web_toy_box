@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="../../reset.css" />
     <link rel="stylesheet" href="./grid_generator.css" />
+    <link rel="stylesheet" href="./grid_simulator.css">
     <script
       src="https://kit.fontawesome.com/381cdc4554.js"
       crossorigin="anonymous"
@@ -23,7 +24,7 @@
     <div class="main">
       <header class="header">
         <h1>Grid Generator</h1>
-        <p>Bootstrapy grid system stylesheet generator</p>
+        <p>Bootstrapy grid system CSS code generator</p>
       </header>
 
       <div class="grid-generator">
@@ -60,7 +61,7 @@
                   <label for="form-1-fixture">Column selector fixture</label>
                   <input type="text" id="form-1-fixture" placeholder="sm" />
                   <span class="input-desc" id="form-1-fixture-desc"
-                    >.col<span id="form-1-fixture-span">-sm</span>-1
+                    >.col<span id="form-1-fixture-span"></span>-1
                   </span>
                 </li>
 
@@ -69,7 +70,7 @@
                   <input
                     type="text"
                     id="form-1-columns"
-                    placeholder="4"
+                    placeholder="2"
                     pattern="\d*"
                   />
                   <span
@@ -79,12 +80,13 @@
                 </li>
 
                 <li class="input-item">
-                  <label for="form-1-gutter">Gutter</label>
+                  <label for="form-1-gutter">Gutter
+                    <span>(default)</span></label>
                   <input
                     type="text"
                     id="form-1-gutter"
                     class="input-px"
-                    placeholder="20"
+                    placeholder="30"
                     pattern="\d*"
                   />
                   <span class="input-warning" id="form-1-gutter-warning"></span>
@@ -92,12 +94,13 @@
                 </li>
 
                 <li class="input-item">
-                  <label for="form-1-margin">Margin</label>
+                  <label for="form-1-margin">Margin
+                    <span>(default)</span></label>
                   <input
                     type="text"
                     id="form-1-margin"
                     class="input-px"
-                    placeholder="5"
+                    placeholder="0"
                     pattern="\d*"
                   />
                   <span class="input-warning" id="form-1-margin-warning"></span>
@@ -163,7 +166,7 @@
                   <input
                     type="text"
                     id="form-2-screen"
-                    placeholder="mobile"
+                    placeholder="tablet"
                     disabled
                   />
                 </li>
@@ -174,8 +177,9 @@
                     type="text"
                     id="form-2-breakpoint"
                     class="input-px"
-                    placeholder="0"
+                    placeholder="768"
                     pattern="\d*"
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -184,13 +188,13 @@
                   <span class="i-px" aria-hidden></span>
                   <div class="input-desc" id="form-2-breakpoint-desc">
                     @media screen and (min-width:
-                    <span id="form-2-breakpoint-span">0</span>px)
+                    <span id="form-2-breakpoint-span">768</span>px)
                   </div>
                 </li>
 
                 <li class="input-item">
                   <label for="form-2-fixture">Column selector fixture</label>
-                  <input type="text" id="form-2-fixture" placeholder="sm" />
+                  <input type="text" id="form-2-fixture" placeholder="md" disabled/>
                   <span class="input-desc" id="form-2-fixture-desc"
                     >.col<span id="form-2-fixture-span">-sm</span>-1
                   </span>
@@ -201,8 +205,9 @@
                   <input
                     type="text"
                     id="form-2-columns"
-                    placeholder="4"
+                    placeholder="6"
                     pattern="\d*"
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -216,11 +221,16 @@
                     type="text"
                     id="form-2-gutter"
                     class="input-px"
-                    placeholder="20"
+                    placeholder="30"
                     pattern="\d*"
+                    disabled
                   />
                   <span class="input-warning" id="form-2-gutter-warning"></span>
                   <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-2-gutter-default-check">Default gutter</label>
+                    <input type="checkbox" id="form-2-gutter-default-check" data-form="form-2" disabled/>
+                  </div>
                 </li>
 
                 <li class="input-item">
@@ -229,11 +239,16 @@
                     type="text"
                     id="form-2-margin"
                     class="input-px"
-                    placeholder="5"
+                    placeholder="0"
                     pattern="\d*"
+                    disabled
                   />
                   <span class="input-warning" id="form-2-margin-warning"></span>
                   <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-2-margin-default-check">Default margin</label>
+                    <input type="checkbox" id="form-2-margin-default-check" data-form="form-2" disabled/>
+                  </div>
                 </li>
 
                 <li class="input-item">
@@ -245,12 +260,13 @@
                     placeholder="auto"
                     pattern="\d*"
                     readonly
+                    disabled
                   />
                   <span class="input-warning" id="form-2-unit-warning"></span>
                   <span class="i-px" aria-hidden></span>
                   <div class="input-option">
                     <label for="form-2-unit-check">Fix unit size</label>
-                    <input type="checkbox" id="form-2-unit-check" />
+                    <input type="checkbox" id="form-2-unit-check" disabled/>
                   </div>
                 </li>
 
@@ -263,6 +279,7 @@
                     placeholder="auto"
                     pattern="\d*"
                     readonly
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -276,19 +293,19 @@
                     <label for="form-2-container-check"
                       >Set container max-width</label
                     >
-                    <input type="checkbox" id="form-2-container-check" />
+                    <input type="checkbox" id="form-2-container-check" disabled/>
                   </div>
                 </li>
 
                 <li class="input-hidden" aria-hidden>
-                  <input type="checkbox" id="form-2-active-check" />
+                  <input type="checkbox" id="form-2-active-check" disabled/>
                 </li>
               </ul>
 
               <div class="form-btns">
                 <button
                   type="button"
-                  class="btn-round-44 js-btn-remove-bp"
+                  class="btn-round-44 light hide js-btn-remove-bp"
                   data-form="form-2"
                 >
                   <i class="fas fa-minus"></i>
@@ -312,7 +329,7 @@
               <ul class="input-list">
                 <li class="input-item">
                   <label for="form-3-screen" class="input-label">Screen</label>
-                  <input type="text" id="form-3-screen" placeholder="mobile" />
+                  <input type="text" id="form-3-screen" placeholder="desktop" disabled/>
                 </li>
 
                 <li class="input-item">
@@ -321,8 +338,9 @@
                     type="text"
                     id="form-3-breakpoint"
                     class="input-px"
-                    placeholder="0"
+                    placeholder="1200"
                     pattern="\d*"
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -331,15 +349,15 @@
                   <span class="i-px" aria-hidden></span>
                   <div class="input-desc" id="form-3-breakpoint-desc">
                     @media screen and (min-width:
-                    <span id="form-3-breakpoint-span">0</span>px)
+                    <span id="form-3-breakpoint-span">1200</span>px)
                   </div>
                 </li>
 
                 <li class="input-item">
                   <label for="form-3-fixture">Column selector fixture</label>
-                  <input type="text" id="form-3-fixture" placeholder="sm" />
+                  <input type="text" id="form-3-fixture" placeholder="lg" disabled/>
                   <span class="input-desc" id="form-3-fixture-desc"
-                    >.col<span id="form-3-fixture-span">-sm</span>-1
+                    >.col<span id="form-3-fixture-span">-lg</span>-1
                   </span>
                 </li>
 
@@ -348,8 +366,9 @@
                   <input
                     type="text"
                     id="form-3-columns"
-                    placeholder="4"
+                    placeholder="12"
                     pattern="\d*"
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -363,11 +382,16 @@
                     type="text"
                     id="form-3-gutter"
                     class="input-px"
-                    placeholder="20"
+                    placeholder="30"
                     pattern="\d*"
+                    disabled
                   />
                   <span class="input-warning" id="form-3-gutter-warning"></span>
                   <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-3-gutter-default-check">Default gutter</label>
+                    <input type="checkbox" id="form-3-gutter-default-check" disabled/>
+                  </div>
                 </li>
 
                 <li class="input-item">
@@ -376,11 +400,16 @@
                     type="text"
                     id="form-3-margin"
                     class="input-px"
-                    placeholder="5"
+                    placeholder="0"
                     pattern="\d*"
+                    disabled
                   />
                   <span class="input-warning" id="form-3-margin-warning"></span>
                   <span class="i-px" aria-hidden></span>
+                  <div class="input-option">
+                    <label for="form-3-margin-default-check">Default margin</label>
+                    <input type="checkbox" id="form-3-margin-default-check" disabled/>
+                  </div>
                 </li>
 
                 <li class="input-item">
@@ -392,12 +421,13 @@
                     placeholder="auto"
                     pattern="\d*"
                     readonly
+                    disabled
                   />
                   <span class="input-warning" id="form-3-unit-warning"></span>
                   <span class="i-px" aria-hidden></span>
                   <div class="input-option">
                     <label for="unit-check">Fix unit size</label>
-                    <input type="checkbox" id="form-3-unit-check" />
+                    <input type="checkbox" id="form-3-unit-check" disabled/>
                   </div>
                 </li>
 
@@ -410,6 +440,7 @@
                     placeholder="auto"
                     pattern="\d*"
                     readonly
+                    disabled
                   />
                   <span
                     class="input-warning"
@@ -423,15 +454,19 @@
                     <label for="form-3-container-check"
                       >Set container max-width</label
                     >
-                    <input type="checkbox" id="form-3-container-check" />
+                    <input type="checkbox" id="form-3-container-check" disabled/>
                   </div>
+                </li>
+
+                <li class="input-hidden" aria-hidden>
+                  <input type="checkbox" id="form-3-active-check" disabled />
                 </li>
               </ul>
 
               <div class="form-btns">
                 <button
                   type="button"
-                  class="btn-round-44 js-btn-remove-bp"
+                  class="btn-round-44 light hide js-btn-remove-bp"
                   data-form="form-3"
                 >
                   <i class="fas fa-minus"></i>
@@ -457,70 +492,29 @@
         </section>
 
         <section class="code-simulator">
-          <div class="code" id="code">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
-            dolorem omnis architecto voluptates ea praesentium cumque beatae
-            quos totam libero, quo aut! Pariatur quam exercitationem amet nisi
-            doloremque atque alias.
+          <div class="code-scroller">
+            <div class="code" id="code">
+              Auto-generated CSS Code:<br />Please fill out the form above.
+            </div>
           </div>
-          <button type="button" class="btn-round icon">
-            <i class="fas fa-arrow-circle-down"></i>
-            <span>View Simulator</span>
+
+          <button type="button" class="btn-round-44 js-btn-view-grid">
+            <i class="fas fa-chevron-down"></i>
+            <span>View grid simulator</span>
           </button>
         </section>
       </div>
     </div>
 
-    <!-- <section class="grid-btn">
-      <div class="btn-container">
-        <button type="button">Add Screen and Breakpoint</button>
-        <button type="button" id="btn-code">Generate Code</button>
-      </div>
-    </section> -->
-
-    <!-- <section class="grid-simulator">
-      <div class="simulator-container">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-            <div class="col-sm-1">
-              <div class="box"></div>
-            </div>
-          </div>
+    <section class="grid-simulator">
+      <button type="button" class="btn-round-44 js-btn-generate-grid">
+        Generate grid simulator
+      </button>
+      <div class="container">
+        <div class="row js-row">
+          <div class="grid-background"></div>
         </div>
       </div>
-    </section> -->
+    </sectoin>
   </body>
 </html>
